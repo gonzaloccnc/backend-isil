@@ -45,18 +45,4 @@ public class ApplicationConfig {
   public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
   }
-
-  @Bean
-  public WebMvcConfigurer mvcConfigurer() {
-    return new WebMvcConfigurer() {
-      @Override
-      public void addCorsMappings(@NonNull CorsRegistry registry) {
-        registry
-            .addMapping("/**")
-            .allowedMethods("*")
-            .allowedHeaders("*")
-            .allowedOrigins("*");
-      }
-    };
-  }
 }
