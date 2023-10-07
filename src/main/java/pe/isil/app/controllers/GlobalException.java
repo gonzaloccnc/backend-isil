@@ -127,4 +127,18 @@ public class GlobalException {
             .build()
     );
   }
+
+  @ExceptionHandler(Exception.class)
+  ResponseEntity<?> otherErrors(Exception ex, HttpServletRequest req) {
+    return ResponseEntity.status(500).body(
+        ErrorDto
+            .builder()
+            .url(req.getRequestURI())
+            .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+            .message(ex.getMessage())
+            .error(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase())
+            .ok(false)
+            .build()
+    );
+  }
 }

@@ -281,3 +281,26 @@ update users set password = "$2a$10$BOm6GwouvlF88FLq7auaIO9BzbUCtcDMfZ/zU9o2IyqA
 SELECT * FROM courses;
 SELECT * FROM careers;
 SELECT * FROM users where user_type = 1; -- admins
+
+/* profesores */
+INSERT INTO users (id_user, firstname, surnames, birthday, address, type_doc, doc_id, password, email, phone, id_career, register_date, state, photo, user_type)
+VALUES
+    ('6b32c6e3-6489-11ee-95e8-0242ac110002', 'Maria Maria', 'Becerra Garcia', '1995-10-03', 'Avenida Petit Thoars 5532', 0, '88332231', 'isil20203', 'becerra@gmail.com', '998877111', null, NOW(), 0, null, 2);
+
+
+CREATE VIEW classroom_view as
+SELECT c.id_classroom, c.nrc, c.school_day, c.start_time, c.end_time, c.link_meet, c.total_hours,
+    CASE
+        WHEN c.modality = 1 THEN 'VIRTUAL'
+        WHEN c.modality = 2 THEN 'REMOTO'
+        WHEN c.modality = 3 THEN 'SEMIREMOTO'
+        ELSE 'PRESENCIAL'
+    END AS modality, c.campus, c.period, c.start_date, c.end_date, c.max_members, c.id_teacher,
+    concat(u.firstname, ' ', u.surnames) teacher, c.id_course, c2.course_name course
+FROM classrooms c INNER JOIN users u on c.id_teacher = u.id_user
+INNER JOIN courses c2 on c.id_course = c2.id_course;
+
+select * from classroom_view;
+
+UPDATE courses SET syllabus = 'https://res.cloudinary.com/durrquwiy/image/upload/v1696636531/syllabus/30015-SILABO_tsaov5.pdf';
+SELECT * FROM users where user_type = 1; -- admins

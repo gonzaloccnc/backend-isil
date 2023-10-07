@@ -15,7 +15,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import pe.isil.app.domain.enums.Rol;
 import pe.isil.app.domain.handlers.AuthenticationCustom;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -47,8 +46,6 @@ public class SecurityConfig {
         .authorizeHttpRequests(req -> {
           req.requestMatchers("/auth/**").permitAll();
           req.requestMatchers("/admin/**").hasAuthority(Rol.ADMIN.name());
-          req.requestMatchers("/teacher/**").hasAuthority(Rol.PROFESOR.name());
-          req.requestMatchers("/student/**").hasAuthority(Rol.ALUMNO.name());
           req.anyRequest().authenticated();
         })
         .exceptionHandling(ex -> {
