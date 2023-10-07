@@ -15,7 +15,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import pe.isil.app.domain.enums.Rol;
 import pe.isil.app.domain.handlers.AuthenticationCustom;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Configuration

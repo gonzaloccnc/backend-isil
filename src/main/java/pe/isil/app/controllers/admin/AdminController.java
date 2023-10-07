@@ -12,16 +12,17 @@ import pe.isil.app.domain.dtos.ErrorDto;
 import pe.isil.app.domain.dtos.MonoDto;
 import pe.isil.app.domain.dtos.PageableDto;
 import pe.isil.app.domain.models.Classroom;
-import pe.isil.app.domain.models.ClassroomView;
 import pe.isil.app.domain.models.Course;
 import pe.isil.app.domain.repos.IClassroomRepo;
-import pe.isil.app.domain.repos.IClassroomViewRepo;
 import pe.isil.app.domain.repos.ICourseRepo;
 import pe.isil.app.domain.repos.IUserRepo;
 import pe.isil.app.domain.utils.PageableUtil;
 
 import java.util.List;
 import java.util.UUID;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/admin")
@@ -155,6 +156,5 @@ public class AdminController {
             .build()
     );
   }
-
 
 }

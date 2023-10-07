@@ -303,3 +303,4 @@ INNER JOIN courses c2 on c.id_course = c2.id_course;
 select * from classroom_view;
 
 UPDATE courses SET syllabus = 'https://res.cloudinary.com/durrquwiy/image/upload/v1696636531/syllabus/30015-SILABO_tsaov5.pdf';
+SELECT * FROM users where user_type = 1; -- admins
