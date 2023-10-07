@@ -4,16 +4,24 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pe.isil.app.domain.dtos.ClassroomDto;
+import pe.isil.app.domain.dtos.ErrorDto;
+import pe.isil.app.domain.dtos.MonoDto;
 import pe.isil.app.domain.dtos.PageableDto;
+import pe.isil.app.domain.models.Classroom;
+import pe.isil.app.domain.models.ClassroomView;
 import pe.isil.app.domain.models.Course;
+import pe.isil.app.domain.repos.IClassroomRepo;
+import pe.isil.app.domain.repos.IClassroomViewRepo;
 import pe.isil.app.domain.repos.ICourseRepo;
+import pe.isil.app.domain.repos.IUserRepo;
 import pe.isil.app.domain.utils.PageableUtil;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/admin")
@@ -21,6 +29,8 @@ import java.util.List;
 public class AdminController {
 
   private final ICourseRepo courseRepo;
+  private final IUserRepo userRepo;
+  private final IClassroomRepo classroomRepo;
 
   @GetMapping("/courses")
   ResponseEntity<PageableDto<List<Course>>> getCourses(
@@ -58,4 +68,93 @@ public class AdminController {
             .build()
     );
   }
+
+  @GetMapping(value = "/courses/{id}")
+  ResponseEntity<?> getOneCourse(@PathVariable String id, HttpServletRequest req) {
+    var existCourse = courseRepo.findById(id).orElse(null);
+
+    if(existCourse == null) {
+      return ResponseEntity.status(404).body(
+          ErrorDto.builder()
+              .url(req.getRequestURI())
+              .ok(false)
+              .status(404)
+              .error(HttpStatus.NOT_FOUND.getReasonPhrase())
+              .message("El curso no existe")
+              .build()
+      );
+    }
+
+    return ResponseEntity.ok(
+        MonoDto.<Course>builder()
+            .data(existCourse)
+            .ok(true)
+            .status(200)
+            .message("Curso encontrado")
+            .build()
+    );
+  }
+
+  @PostMapping("/classes")
+  ResponseEntity<?> addClass(@RequestBody Classroom classroom, HttpServletRequest req) {
+
+    var existCourse = courseRepo.findById(classroom.getIdCourse()).orElse(null);
+    var existTeacher = userRepo.findById(classroom.getIdTeacher()).orElse(null);
+    var isTeacher = existTeacher != null && existTeacher.getUserType() == 2;
+
+    if(existCourse == null || !isTeacher) {
+      return ResponseEntity.status(404).body(
+          ErrorDto.builder()
+              .status(404)
+              .url(req.getRequestURI())
+              .error(HttpStatus.NOT_FOUND.getReasonPhrase())
+              .ok(false)
+              .message("El curso no existe o el idTeacher no es un profesor")
+              .build()
+      );
+    }
+
+    classroom.setIdClassroom(UUID.randomUUID().toString());
+
+    var classroomSave = classroomRepo.save(classroom);
+    var dto = classroomSave.toDto();
+
+    return ResponseEntity.ok(
+     MonoDto.<ClassroomDto>builder()
+         .data(classroomSave.toDto())
+         .status(201)
+         .ok(true)
+         .message("Curso creado correctamente")
+         .build()
+    );
+  }
+
+  @GetMapping("/classes/{id}")
+  ResponseEntity<?> getOneClass(@PathVariable String id, HttpServletRequest req) {
+
+    var classFind = classroomRepo.findById(id).orElse(null);
+
+    if(classFind == null) {
+      return ResponseEntity.status(404).body(
+        ErrorDto.builder()
+            .url(req.getRequestURI())
+            .ok(false)
+            .status(404)
+            .error(HttpStatus.NOT_FOUND.getReasonPhrase())
+            .message("No existe la clase")
+            .build()
+      );
+    }
+
+    return ResponseEntity.ok(
+        MonoDto.<ClassroomDto>builder()
+            .data(classFind.toDto())
+            .status(200)
+            .message("Curso encontrado")
+            .ok(false)
+            .build()
+    );
+  }
+
+
 }

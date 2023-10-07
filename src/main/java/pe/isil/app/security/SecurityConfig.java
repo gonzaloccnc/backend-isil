@@ -47,8 +47,6 @@ public class SecurityConfig {
         .authorizeHttpRequests(req -> {
           req.requestMatchers("/auth/**").permitAll();
           req.requestMatchers("/admin/**").hasAuthority(Rol.ADMIN.name());
-          req.requestMatchers("/teacher/**").hasAuthority(Rol.PROFESOR.name());
-          req.requestMatchers("/student/**").hasAuthority(Rol.ALUMNO.name());
           req.anyRequest().authenticated();
         })
         .exceptionHandling(ex -> {
