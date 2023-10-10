@@ -304,3 +304,38 @@ select * from classroom_view;
 
 UPDATE courses SET syllabus = 'https://res.cloudinary.com/durrquwiy/image/upload/v1696636531/syllabus/30015-SILABO_tsaov5.pdf';
 SELECT * FROM users where user_type = 1; -- admins
+
+-- Insertar contenido para el curso "Programación Web I"
+INSERT INTO contents (title, description, link_file, num_order, id_course)
+VALUES
+    ('Introducción a HTML', 'Introducción a HTML y su importancia en el desarrollo web.', 'html-intro.ppt', 1, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Fundamentos de CSS', 'Fundamentos de CSS para dar estilo a páginas web.', 'css-fundamentals.ppt', 2, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('JavaScript Básico', 'Introducción a JavaScript y su uso en páginas web interactivas.', 'javascript-basico.ppt', 3, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Diseño Responsivo', 'Conceptos y técnicas de diseño web responsivo.', 'diseno-responsivo.ppt', 4, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Frameworks Frontend', 'Introducción a los frameworks frontend para el desarrollo web.', 'frontend-frameworks.ppt', 5, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Programación en jQuery', 'Uso de jQuery para la manipulación del DOM en aplicaciones web.', 'jquery-programming.ppt', 6, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Trabajo con APIs', 'Cómo interactuar con APIs en aplicaciones web.', 'api-usage.ppt', 7, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Bases de Datos en la Web', 'Uso de bases de datos en el desarrollo web.', 'web-databases.ppt', 8, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Seguridad Web', 'Conceptos de seguridad en aplicaciones web y buenas prácticas.', 'web-security.ppt', 9, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Despliegue Web', 'Cómo desplegar aplicaciones web en servidores en línea.', 'web-deployment.ppt', 10, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Introducción a Node.js', 'Introducción a Node.js para el desarrollo de aplicaciones web del lado del servidor.', 'nodejs-intro.ppt', 11, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Frameworks Backend', 'Uso de frameworks backend en el desarrollo web.', 'backend-frameworks.ppt', 12, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Seguridad en Node.js', 'Prácticas de seguridad en aplicaciones Node.js.', 'nodejs-security.ppt', 13, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Aplicaciones en Tiempo Real', 'Desarrollo de aplicaciones web en tiempo real.', 'real-time-web.ppt', 14, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Proyecto de Desarrollo Web', 'Desarrollo de un proyecto web completo.', 'web-dev-project.ppt', 15, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('Evaluación Final', 'Evaluación final del curso de Programación Web I.', 'evaluacion-final.ppt', 16, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76');
