@@ -14,6 +14,7 @@ import pe.isil.app.domain.dtos.PageableDto;
 import pe.isil.app.domain.models.Classroom;
 import pe.isil.app.domain.models.Course;
 import pe.isil.app.domain.repos.IClassroomRepo;
+import pe.isil.app.domain.repos.IClassroomViewRepo;
 import pe.isil.app.domain.repos.ICourseRepo;
 import pe.isil.app.domain.repos.IUserRepo;
 import pe.isil.app.domain.utils.PageableUtil;
@@ -32,6 +33,7 @@ public class AdminController {
   private final ICourseRepo courseRepo;
   private final IUserRepo userRepo;
   private final IClassroomRepo classroomRepo;
+  private final IClassroomViewRepo classroomViewRepo;
 
   @GetMapping("/courses")
   ResponseEntity<PageableDto<List<Course>>> getCourses(
@@ -118,15 +120,67 @@ public class AdminController {
     classroom.setIdClassroom(UUID.randomUUID().toString());
 
     var classroomSave = classroomRepo.save(classroom);
-    var dto = classroomSave.toDto();
+    var classView = classroomViewRepo.findByIdClassroom(classroomSave.getIdClassroom());
 
     return ResponseEntity.ok(
-     MonoDto.<ClassroomDto>builder()
-         .data(classroomSave.toDto())
+     MonoDto.builder()
+         .data(classView)
          .status(201)
          .ok(true)
-         .message("Curso creado correctamente")
+         .message("Clase creada correctamente")
          .build()
+    );
+  }
+
+  @PatchMapping("/classes/{id}")
+  ResponseEntity<?> updateClass(
+      @PathVariable String id,
+      @RequestBody Classroom classroom,
+      HttpServletRequest req
+  ) {
+
+    var existCourse = courseRepo.findById(classroom.getIdCourse()).orElse(null);
+    var existTeacher = userRepo.findById(classroom.getIdTeacher()).orElse(null);
+    var isTeacher = existTeacher != null && existTeacher.getUserType() == 2;
+    var existClass = classroomRepo.findById(id).orElse(null);
+
+    if(existClass == null) {
+      return ResponseEntity.status(404).body(
+          ErrorDto.builder()
+              .status(404)
+              .url(req.getRequestURI())
+              .error(HttpStatus.NOT_FOUND.getReasonPhrase())
+              .ok(false)
+              .message("El curso con id: " + id + " no existe")
+              .build()
+      );
+    }
+
+
+    if(existCourse == null || !isTeacher) {
+      return ResponseEntity.status(404).body(
+          ErrorDto.builder()
+              .status(404)
+              .url(req.getRequestURI())
+              .error(HttpStatus.NOT_FOUND.getReasonPhrase())
+              .ok(false)
+              .message("El curso no existe o el idTeacher no es un profesor")
+              .build()
+      );
+    }
+
+    classroom.setIdClassroom(id);
+
+    var classroomSave = classroomRepo.save(classroom);
+    var classView = classroomViewRepo.findByIdClassroom(classroomSave.getIdClassroom());
+
+    return ResponseEntity.ok(
+        MonoDto.builder()
+            .data(classView)
+            .status(201)
+            .ok(true)
+            .message("Clase actualizada correctamente")
+            .build()
     );
   }
 

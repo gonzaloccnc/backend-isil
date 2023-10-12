@@ -1,3 +1,4 @@
+DROP DATABASE `isil-lms`;
 CREATE DATABASE `isil-lms`;
 
 USE `isil-lms`;
@@ -273,19 +274,50 @@ INSERT INTO users values (uuid(), 'Manuel', 'Peña Lopez', '1885-05-24', 'Av los
 ## INSERT INTO users values (uuid(), '', '');
 
 /* constraseña hasheada para spring boot == isil20203, para todos los alumnos */
-update users set password = "$2a$10$YmI8mkcnKEAhQKnot.gGgOFUHRAeKwy10iHm00MVS14Q2aqHTB6FC" where user_type = 3;
+ update users set password = '$2a$10$YmI8mkcnKEAhQKnot.gGgOFUHRAeKwy10iHm00MVS14Q2aqHTB6FC' where user_type = 3 OR user_type = 2;
 
 /* igual pero para el admin === admin123 */
-update users set password = "$2a$10$BOm6GwouvlF88FLq7auaIO9BzbUCtcDMfZ/zU9o2IyqAJ4x.Pb0ZC" where email = "admin@isil.pe";
+update users set password = '$2a$10$BOm6GwouvlF88FLq7auaIO9BzbUCtcDMfZ/zU9o2IyqAJ4x.Pb0ZC' where email = 'admin@isil.pe';
 
 SELECT * FROM courses;
 SELECT * FROM careers;
 SELECT * FROM users where user_type = 1; -- admins
 
 /* profesores */
+
 INSERT INTO users (id_user, firstname, surnames, birthday, address, type_doc, doc_id, password, email, phone, id_career, register_date, state, photo, user_type)
 VALUES
-    ('6b32c6e3-6489-11ee-95e8-0242ac110002', 'Maria Maria', 'Becerra Garcia', '1995-10-03', 'Avenida Petit Thoars 5532', 0, '88332231', 'isil20203', 'becerra@gmail.com', '998877111', null, NOW(), 0, null, 2);
+    ('6b32c6e3-6489-11ee-95e8-0242ac110002', 'Maria Maria', 'Becerra Garcia', '1995-10-03', 'Avenida Petit Thoars 5532', 0, '88432231', 'isil20203', 'becerra@gmail.com', null, null, NOW(), 0, null, 2),
+    ('6114d88b-67b1-11ee-ad27-0242ac110002', 'Carlos', 'López Pérez', '1978-05-15', 'Calle Principal 123', 0, '73625115', 'isil20203', 'carlos@email.com', null, null, NOW(), 0, null, 2),
+    ('667986a1-67b1-11ee-ad27-0242ac110002', 'Ana', 'Martínez Sánchez', '1982-09-20', 'Avenida Central 456', 0, '45678932', 'isil20203', 'ana@email.com', null, null, NOW(), 0, null, 2),
+    ('786f8aa0-67b1-11ee-ad27-0242ac110002', 'Luis', 'Gómez Rodríguez', '1975-03-10', 'Calle Secundaria 789', 0, '32456501', 'isil20203', 'luis@email.com', null, null, NOW(), 0, null, 2),
+    ('832e71d4-67b1-11ee-ad27-0242ac110002', 'María', 'Ramírez Fernández', '1980-07-08', 'Calle de la Paz 234', 0, '10123452', 'isil20203', 'maria@email.com', null, null, NOW(), 0, null, 2),
+    ('86852909-67b1-11ee-ad27-0242ac110002', 'Pedro', 'Hernández López', '1973-12-30', 'Avenida Central 567', 0, '11245161', 'isil20203', 'pedro@email.com', null, null, NOW(), 0, null, 2),
+    ('8bd385eb-67b1-11ee-ad27-0242ac110002', 'Laura', 'García Martínez', '1985-06-25', 'Calle de los Sueños 345', 0, '65412345', 'isil20203', 'laura@email.com', null, null, NOW(), 0, null, 2),
+    ('900f0306-67b1-11ee-ad27-0242ac110002', 'Javier', 'Fernández López', '1976-02-14', 'Calle del Sol 678', 0, '78012345', 'isil20203', 'javier@email.com', null, null, NOW(), 0, null, 2),
+    ('95335f24-67b1-11ee-ad27-0242ac110002', 'Carmen', 'López Gómez', '1981-08-03', 'Calle Principal 123', 0, '45123451', 'isil20203', 'carmen@email.com', null, null, NOW(), 0, null, 2),
+    ('9b686b27-67b1-11ee-ad27-0242ac110002', 'Miguel', 'Sánchez Rodríguez', '1977-04-22', 'Avenida Central 456', 0, '12344345', 'isil20203', 'miguel@email.com', null, null, NOW(), 0, null, 2),
+    ('a05967ce-67b1-11ee-ad27-0242ac110002', 'Isabel', 'Martínez López', '1979-11-01', 'Calle Secundaria 789', 0, '54782211', 'isil20203', 'isabel@email.com', null, null, NOW(), 0, null, 2),
+    ('a7e2efdf-67b1-11ee-ad27-0242ac110002', 'Ricardo', 'Gómez Sánchez', '1984-10-18', 'Calle de la Paz 234', 0, '54434457', 'isil20203', 'ricardo@email.com', null, null, NOW(), 0, null, 2),
+    ('aefbc60d-67b1-11ee-ad27-0242ac110002', 'Elena', 'Hernández Rodríguez', '1972-01-05', 'Avenida Central 567', 0, '54565122', 'isil20203', 'elena@email.com', null, null, NOW(), 0, null, 2),
+    ('b23cadfe-67b1-11ee-ad27-0242ac110002', 'Antonio', 'Martínez Pérez', '1986-07-30', 'Calle de los Sueños 345', 0, '55134244', 'isil20203', 'antonio@email.com', null, null, NOW(), 0, null, 2),
+    ('b77bdf1b-67b1-11ee-ad27-0242ac110002', 'Patricia', 'Sánchez López', '1974-03-12', 'Calle del Sol 678', 0, '50022512', 'isil20203', 'patricia@email.com', null, null, NOW(), 0, null, 2),
+    ('bbc82d5a-67b1-11ee-ad27-0242ac110002', 'Juan', 'López Rodríguez', '1983-09-15', 'Calle Principal 123', 0, '90902515', 'isil20203', 'juan@email.com', null, null, NOW(), 0, null, 2),
+    ('bfab5004-67b1-11ee-ad27-0242ac110002', 'Sofía', 'Martínez García', '1978-06-29', 'Avenida Central 456', 0, '48226458', 'isil20203', 'sofia@email.com', null, null, NOW(), 0, null, 2),
+    ('c4e9e4f6-67b1-11ee-ad27-0242ac110002', 'Manuel', 'Hernández López', '1980-05-08', 'Calle de la Paz 234', 0, '78932456', 'isil20203', 'manuel@email.com', null, null, NOW(), 0, null, 2),
+    ('c93c58d9-67b1-11ee-ad27-0242ac110002', 'Marina', 'García Rodríguez', '1975-11-11', 'Calle del Sol 789', 0, '23456341', 'isil20203', 'marina@email.com', null, null, NOW(), 0, null, 2),
+    ('cdd3b0e3-67b1-11ee-ad27-0242ac110002', 'Francisco', 'López Martínez', '1982-04-04', 'Avenida Principal 456', 0, '99531432', 'isil20203', 'francisco@email.com', null, null, NOW(), 0, null, 2),
+    ('d164d12a-67b1-11ee-ad27-0242ac110002', 'Eva', 'Martínez Pérez', '1973-08-25', 'Calle de la Luna 123', 0, '62156166', 'isil20203', 'eva@email.com', null, null, NOW(), 0, null, 2),
+    ('d6dcd93f-67b1-11ee-ad27-0242ac110002', 'Alejandro', 'Gómez Sánchez', '1981-02-14', 'Avenida Central 789', 0, '43224456', 'isil20203', 'alejandro@email.com', null, null, NOW(), 0, null, 2),
+    ('db952d86-67b1-11ee-ad27-0242ac110002', 'Isabella', 'López Rodríguez', '1976-05-19', 'Calle Principal 456', 0, '50112351', 'isil20203', 'isabella@email.com', null, null, NOW(), 0, null, 2),
+    ('e099261b-67b1-11ee-ad27-0242ac110002', 'Fernando', 'García Martínez', '1980-12-10', 'Avenida del Sol 789', 0, '12341234', 'isil20203', 'fernando@email.com', null, null, NOW(), 0, null, 2),
+    ('e575ee7c-67b1-11ee-ad27-0242ac110002', 'Natalia', 'Martínez Sánchez', '1977-07-06', 'Calle de la Playa 123', 0, '12124568', 'isil20203', 'natalia@email.com', null, null, NOW(), 0, null, 2),
+    ('ebb8ffb7-67b1-11ee-ad27-0242ac110002', 'Raúl', 'Gómez López', '1984-09-28', 'Avenida del Río 456', 0, '56783333', 'isil20203', 'raul@email.com', null, null, NOW(), 0, null, 2),
+    ('f0482352-67b1-11ee-ad27-0242ac110002', 'Clara', 'Hernández García', '1979-11-23', 'Calle del Bosque 123', 0, '78912341', 'isil20203', 'clara@email.com', null, null, NOW(), 0, null, 2),
+    ('f5884c02-67b1-11ee-ad27-0242ac110002', 'Roberto', 'Martínez Rodríguez', '1983-06-21', 'Avenida Principal 789', 0, '12344511', 'isil20203', 'roberto@email.com', null, null, NOW(), 0, null, 2),
+    ('f97ad5f8-67b1-11ee-ad27-0242ac110002', 'Sara', 'García López', '1978-03-17', 'Calle de la Montaña 123', 0, '10010032', 'isil20203', 'sara@email.com', null, null, NOW(), 0, null, 2),
+    ('fdf6befb-67b1-11ee-ad27-0242ac110002', 'Andrés', 'López Sánchez', '1982-01-09', 'Avenida del Mar 456', 0, '56230033', 'isil20203', 'andres@email.com', null, null, NOW(), 0, null, 2),
+    ('0211c8be-67b2-11ee-ad27-0242ac110002', 'Valeria', 'Gómez Martínez', '1974-07-14', 'Calle de la Estrella 123', 0, '62311115', 'isil20203', 'valeria@email.com', null, null, NOW(), 0, null, 2);
 
 
 CREATE VIEW classroom_view as
@@ -299,8 +331,6 @@ SELECT c.id_classroom, c.nrc, c.school_day, c.start_time, c.end_time, c.link_mee
     concat(u.firstname, ' ', u.surnames) teacher, c.id_course, c2.course_name course
 FROM classrooms c INNER JOIN users u on c.id_teacher = u.id_user
 INNER JOIN courses c2 on c.id_course = c2.id_course;
-
-select * from classroom_view;
 
 UPDATE courses SET syllabus = 'https://res.cloudinary.com/durrquwiy/image/upload/v1696636531/syllabus/30015-SILABO_tsaov5.pdf';
 SELECT * FROM users where user_type = 1; -- admins
@@ -339,3 +369,57 @@ VALUES
     ('Proyecto de Desarrollo Web', 'Desarrollo de un proyecto web completo.', 'web-dev-project.ppt', 15, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
 
     ('Evaluación Final', 'Evaluación final del curso de Programación Web I.', 'evaluacion-final.ppt', 16, 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76');
+
+
+INSERT INTO classrooms
+    (id_classroom, nrc, school_day, start_time, end_time, link_meet, total_hours, modality,
+     campus, period, start_date, end_date, max_members, id_teacher, id_course)
+VALUES
+    ('2c5fa398-67b2-11ee-ad27-0242ac110002', '2122', 'Lunes', '08:00:00', '09:50:00', 'https://meet.google.com/link1', 2, 2, 'MIRAFLORES', '202320', '2023-04-05','2023-12-21', 30, '0211c8be-67b2-11ee-ad27-0242ac110002', '0a5bdac3-ca52-441a-bc2a-b6fd141de409'),
+    ('30974fb2-67b2-11ee-ad27-0242ac110002', '1900', 'Martes', '09:00:00', '10:50:00', 'https://meet.google.com/link2', 2, 2, 'SAN ISIDRO', '202320', '2023-04-05', '2023-12-21', 25, '0211c8be-67b2-11ee-ad27-0242ac110002', '0a5bdac3-ca52-441a-bc2a-b6fd141de409'),
+    ('3502ee35-67b2-11ee-ad27-0242ac110002', '3133', 'Miércoles', '13:00:00', '14:50:00', 'https://meet.google.com/link3', 2, 2, 'LA MOLINA', '202320', '2023-04-05', '2023-12-21', 35, '0211c8be-67b2-11ee-ad27-0242ac110002', '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+    ('5a43a8dd-67b2-11ee-ad27-0242ac110002', '4343', 'Jueves', '14:00:00', '15:50:00', 'https://meet.google.com/link4', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 28, '0211c8be-67b2-11ee-ad27-0242ac110002', '1ad1366a-5cbb-4340-b45f-410f045b6b00'),
+    ('6ea3eaea-67b2-11ee-ad27-0242ac110002', '5432', 'Viernes', '10:00:00', '11:50:00', 'https://meet.google.com/link5', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 32, '0211c8be-67b2-11ee-ad27-0242ac110002', '1ad1366a-5cbb-4340-b45f-410f045b6b00'),
+
+    ('d1730cb1-67b8-11ee-ad27-0242ac110002', '2026', 'Lunes', '08:00:00', '09:50:00', 'https://meet.google.com/link1', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 30, 'ebb8ffb7-67b1-11ee-ad27-0242ac110002', '1fd08d7a-5395-4c1b-b3f1-81ff463ab64d'),
+    ('d5314494-67b8-11ee-ad27-0242ac110002', '1960', 'Martes', '09:00:00', '10:50:00', 'https://meet.google.com/link2', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 25, 'ebb8ffb7-67b1-11ee-ad27-0242ac110002', '0a5bdac3-ca52-441a-bc2a-b6fd141de409'),
+    ('d8180768-67b8-11ee-ad27-0242ac110002', '3143', 'Miércoles', '13:00:00', '14:50:00', 'https://meet.google.com/link3', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 35, 'ebb8ffb7-67b1-11ee-ad27-0242ac110002', '1fd08d7a-5395-4c1b-b3f1-81ff463ab64d'),
+    ('dbe74fd5-67b8-11ee-ad27-0242ac110002', '2521', 'Jueves', '10:00:00', '11:50:00', 'https://meet.google.com/link4', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 28, 'ebb8ffb7-67b1-11ee-ad27-0242ac110002', '0a5bdac3-ca52-441a-bc2a-b6fd141de409'),
+    ('e05a53b8-67b8-11ee-ad27-0242ac110002', '1231', 'Viernes', '14:00:00', '15:50:00', 'https://meet.google.com/link5', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 26, 'ebb8ffb7-67b1-11ee-ad27-0242ac110002', '1eaec303-4921-48cf-aeb1-cea54393125b'),
+
+    ('eb857224-67b8-11ee-ad27-0242ac110002', '1411', 'Viernes', '14:00:00', '15:50:00', 'https://meet.google.com/link10', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 26, 'fdf6befb-67b1-11ee-ad27-0242ac110002', '327e25f2-7097-45e7-b915-285493fd8c50'),
+    ('efd9b81b-67b8-11ee-ad27-0242ac110002', '3495', 'Sábado', '11:00:00', '12:50:00', 'https://meet.google.com/link11', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 30, 'fdf6befb-67b1-11ee-ad27-0242ac110002', '414a02de-d41f-4832-b142-8afb8eb32361'),
+    ('f8fc44a1-67b8-11ee-ad27-0242ac110002', '1663', 'Lunes', '16:00:00', '17:50:00', 'https://meet.google.com/link12', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 32, 'fdf6befb-67b1-11ee-ad27-0242ac110002', '327e25f2-7097-45e7-b915-285493fd8c50'),
+    ('fd1401a0-67b8-11ee-ad27-0242ac110002', '4880', 'Martes', '15:00:00', '16:50:00', 'https://meet.google.com/link13', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 28, 'fdf6befb-67b1-11ee-ad27-0242ac110002', '414a02de-d41f-4832-b142-8afb8eb32361'),
+    ('01faefd5-67b9-11ee-ad27-0242ac110002', '2773', 'Miércoles', '14:00:00', '15:50:00', 'https://meet.google.com/link14', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 26, 'fdf6befb-67b1-11ee-ad27-0242ac110002', '327e25f2-7097-45e7-b915-285493fd8c50'),
+
+    ('07de7e31-67b9-11ee-ad27-0242ac110002', '3115', 'Sábado', '11:00:00', '12:50:00', 'https://meet.google.com/link15', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 30, '900f0306-67b1-11ee-ad27-0242ac110002', '4f71edc9-6c89-4812-81cf-8b5477c8541e'),
+    ('0bffd540-67b9-11ee-ad27-0242ac110002', '1333', 'Lunes', '16:00:00', '17:50:00', 'https://meet.google.com/link16', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 32, '900f0306-67b1-11ee-ad27-0242ac110002', '5857f1fe-1a12-4f97-80fc-2e31af5d695c'),
+    ('0fe90147-67b9-11ee-ad27-0242ac110002', '4220', 'Martes', '15:00:00', '16:50:00', 'https://meet.google.com/link17', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 28, '900f0306-67b1-11ee-ad27-0242ac110002', '5857f1fe-1a12-4f97-80fc-2e31af5d695c'),
+    ('15d8cf76-67b9-11ee-ad27-0242ac110002', '1053', 'Miércoles', '14:00:00', '15:50:00', 'https://meet.google.com/link18', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 26, '900f0306-67b1-11ee-ad27-0242ac110002', '4f71edc9-6c89-4812-81cf-8b5477c8541e'),
+
+    ('1a497a1b-67b9-11ee-ad27-0242ac110002', '2889', 'Jueves', '08:00:00', '09:50:00', 'https://meet.google.com/link19', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 24, 'e575ee7c-67b1-11ee-ad27-0242ac110002', 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+    ('1dcbc595-67b9-11ee-ad27-0242ac110002', '2636', 'Viernes', '10:00:00', '11:50:00', 'https://meet.google.com/link20', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 28, 'e575ee7c-67b1-11ee-ad27-0242ac110002', 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+    ('219f08d8-67b9-11ee-ad27-0242ac110002', '4515', 'Sábado', '14:00:00', '15:50:00', 'https://meet.google.com/link21', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 26, 'e575ee7c-67b1-11ee-ad27-0242ac110002', 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+    ('249c4e1e-67b9-11ee-ad27-0242ac110002', '1811', 'Lunes', '09:00:00', '10:50:00', 'https://meet.google.com/link22', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 25, 'e575ee7c-67b1-11ee-ad27-0242ac110002', 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+    ('2895bc3e-67b9-11ee-ad27-0242ac110002', '3027', 'Martes', '11:00:00', '12:50:00', 'https://meet.google.com/link23', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 30, 'e575ee7c-67b1-11ee-ad27-0242ac110002', 'f53b7b20-2bcd-4592-8efd-6a1b30bb9b76'),
+
+    ('2c6a5420-67b9-11ee-ad27-0242ac110002', '1886', 'Viernes', '10:00:00', '11:50:00', 'https://meet.google.com/link24', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 28, 'e099261b-67b1-11ee-ad27-0242ac110002', 'eef7f963-daa9-4151-b770-c20a8271bdd3'),
+    ('3073975f-67b9-11ee-ad27-0242ac110002', '4655', 'Sábado', '14:00:00', '15:50:00', 'https://meet.google.com/link25', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 26, 'e099261b-67b1-11ee-ad27-0242ac110002', 'f5494257-ad5f-4962-95ae-19e4a1d15714'),
+    ('33801e22-67b9-11ee-ad27-0242ac110002', '1631', 'Lunes', '09:00:00', '10:50:00', 'https://meet.google.com/link26', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 25, 'e099261b-67b1-11ee-ad27-0242ac110002', 'f5494257-ad5f-4962-95ae-19e4a1d15714'),
+    ('37428f09-67b9-11ee-ad27-0242ac110002', '3667', 'Martes', '11:00:00', '12:50:00', 'https://meet.google.com/link27', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 30, 'e099261b-67b1-11ee-ad27-0242ac110002', 'eef7f963-daa9-4151-b770-c20a8271bdd3'),
+
+    ('3b69f861-67b9-11ee-ad27-0242ac110002', '1991', 'Lunes', '09:00:00', '10:50:00', 'https://meet.google.com/link28', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 25, 'db952d86-67b1-11ee-ad27-0242ac110002', 'b0cc01be-aff3-48ee-9833-474821f5a479'),
+    ('40d76b2e-67b9-11ee-ad27-0242ac110002', '3745', 'Martes', '11:00:00', '12:50:00', 'https://meet.google.com/link29', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 30, 'db952d86-67b1-11ee-ad27-0242ac110002', '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+    ('459144aa-67b9-11ee-ad27-0242ac110002', '2666', 'Miércoles', '16:00:00', '17:50:00', 'https://meet.google.com/link30', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 28, 'db952d86-67b1-11ee-ad27-0242ac110002', '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+    ('48d62d28-67b9-11ee-ad27-0242ac110002', '3912', 'Jueves', '15:00:00', '16:50:00', 'https://meet.google.com/link31', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 32, 'db952d86-67b1-11ee-ad27-0242ac110002', 'b0cc01be-aff3-48ee-9833-474821f5a479'),
+    ('4c683763-67b9-11ee-ad27-0242ac110002', '1653', 'Viernes', '14:00:00', '15:50:00', 'https://meet.google.com/link32', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 30, 'db952d86-67b1-11ee-ad27-0242ac110002', 'b0cc01be-aff3-48ee-9833-474821f5a479'),
+
+    ('502e3352-67b9-11ee-ad27-0242ac110002', '5511', 'Miércoles', '16:00:00', '17:50:00', 'https://meet.google.com/link33', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 28, 'd6dcd93f-67b1-11ee-ad27-0242ac110002', '5df91abb-1655-49bb-8c13-186b2b1e3efc'),
+    ('54d54029-67b9-11ee-ad27-0242ac110002', '6664', 'Jueves', '15:00:00', '16:50:00', 'https://meet.google.com/link34', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 32, 'd6dcd93f-67b1-11ee-ad27-0242ac110002', '56b2dcd6-9e3d-4d44-9b54-daa55c4ce3a4'),
+    ('5800b821-67b9-11ee-ad27-0242ac110002', '5422', 'Viernes', '14:00:00', '15:50:00', 'https://meet.google.com/link35', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 30, 'd6dcd93f-67b1-11ee-ad27-0242ac110002', '56b2dcd6-9e3d-4d44-9b54-daa55c4ce3a4'),
+    ('5d1a9187-67b9-11ee-ad27-0242ac110002', '3306', 'Sábado', '09:00:00', '10:50:00', 'https://meet.google.com/link36', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 25, 'd6dcd93f-67b1-11ee-ad27-0242ac110002', '5df91abb-1655-49bb-8c13-186b2b1e3efc');
+
+
+SELECT * FROM classrooms;
+select * from classroom_view;
