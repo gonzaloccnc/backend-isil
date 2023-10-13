@@ -118,7 +118,7 @@ CREATE TABLE groups_evaluations (
 -- DNI, CARNET EXTRANJERIA
 ALTER TABLE users ADD CONSTRAINT ck_typedoc CHECK (type_doc IN(0, 1));
 ALTER TABLE users ADD CONSTRAINT ck_type_user CHECK (user_type IN(1, 2, 3));
-ALTER TABLE users ADD CONSTRAINT ck_maxlength_doc 
+ALTER TABLE users ADD CONSTRAINT ck_maxlength_doc
 	CHECK ( (type_doc = 0 AND (char_length(doc_id) = 8) )
 		OR ( type_doc = 1 AND (char_length(doc_id) BETWEEN 8 AND 20) )
 );
@@ -138,7 +138,7 @@ ALTER TABLE class_evaluations ADD CONSTRAINT ck_evaluation_visibility CHECK (vis
 
 /* INSERTS */
 
-INSERT INTO careers VALUES 
+INSERT INTO careers VALUES
 	('d0324ce6-ca05-4915-a2fb-9c2fdea6bcb6', 'Diseño de Medios Interactivos (UX)', 'Aprende a diseñar y desarrollar soluciones digitales innovadoras para páginas web y aplicaciones móviles.'),
 	('cced1f4b-0b98-4b0c-b4b9-55b68b9b8189', 'Diseño Gráfico', 'Aprende a desarrollar proyectos visuales de valor, empleando las últimas tendencias y herramientas del mercado.'),
 	('94f43c1c-3281-4b9b-8948-4d5c5a3f411b', 'Diseño de Interiores', 'Aprende a planificar, concebir, dirigir y supervisar la implementación de proyectos integrales de diseño.'),
@@ -163,7 +163,7 @@ INSERT INTO careers VALUES
 	('104845f4-1120-40a9-9027-484ffbe4f3a1', 'Sistemas de Información', 'Aprende gestionar proyectos, realizar labores de análisis funcional y desarrollar soluciones informáticas sobre tecnología nueva o existente.'),
 	('d4fdf222-bc44-40d0-8b9f-02f9da02ef5e', 'Hotelería', 'Aprende a administrar empresas de hospedaje, así como también de alimentos o bebidas, utilizando los mejores softwares de gestión.'),
 	('12c8dd01-5d2c-4681-aa2d-ae0302999b41', 'Turismo', 'Aprovecha los recursos y atractivos turísticos con los que cuenta el Perú, dentro del contexto general de turismo receptivo.');
-	
+
 INSERT INTO users (id_user, firstname, surnames, birthday, address, type_doc, doc_id, password, email, phone, id_career, register_date, state, photo, user_type)
 VALUES
   ('1c995ab5-3e36-4bd5-bf9c-13a866d849d8', 'Gonzalo Pedro', 'Manco Garcia', '2002-10-03', 'Avenida Petit Thoars 5532', 0, '70395407', 'isil20203', 'gonzadevelw@gmail.com', '914792763', 'b4622d94-58ad-4b90-bfd7-e39871297ccc', NOW(), 0, null, 3),
@@ -223,7 +223,7 @@ VALUES
   ('2bcf601e-d34b-4f44-85c2-c301a02363fd', 'Silvia', 'Rodriguez Lopez', '1990-01-04', 'Calle Principal 567', 0, '23465789', 'password567', 'silvia@gmail.com', '987654340', '8479031d-0693-4b3f-9bba-ce0521284d01', NOW(), 0, null, 3);
 
 INSERT INTO courses
-VALUES 
+VALUES
 	('4bd14b81-e79e-445a-83eb-82980726eb26', 'Cálculo para Ciencias e Ingeniería', 3, 'El curso de "Cálculo para Ciencias e Ingeniería" es un enfoque integral que combina teoría y práctica para proporcionar a los estudiantes las habilidades necesarias en el ámbito del cálculo, con un enfoque específico en su aplicación en las ciencias y la ingeniería.', 'calculo-para-ciencias-e-ingenieria.pdf'),
 	('1ad1366a-5cbb-4340-b45f-410f045b6b00', 'Comunicación Escrita', 2, 'El curso de "Comunicación Escrita" se enfoca en desarrollar las habilidades de redacción y comunicación efectiva en entornos académicos y profesionales. Los estudiantes aprenderán a expresar sus ideas de manera clara y coherente.', 'comunicacion-escrita.pdf'),
 	('8b94a716-f4ee-4660-9cd8-61ffee8f9610', 'Matemática Aplicada de las Cosas', 3, 'El curso de "Matemática Aplicada de las Cosas" se centra en la aplicación de conceptos matemáticos en situaciones del mundo real, especialmente en el contexto de la tecnología y la ciencia.', 'matematica-aplicada-de-las-cosas.pdf'),
@@ -244,7 +244,7 @@ VALUES
 	('b9cdf0e0-2184-43bf-87e5-2627b2c48688', 'Análisis y Diseño de Sistemas I', 3, 'El curso de "Análisis y Diseño de Sistemas I" se centra en los conceptos y metodologías para analizar y diseñar sistemas de software, incluyendo diagramas de flujo y requisitos del sistema.', 'analisis-y-diseno-de-sistemas-i.pdf'),
 	('c8c7859f-da74-4986-9391-b9079043f9c1', 'Calidad y Pruebas de Software', 3, 'El curso de "Calidad y Pruebas de Software" se enfoca en la aseguramiento de la calidad del software y las estrategias de prueba para garantizar que las aplicaciones funcionen de manera eficiente y libre de errores.', 'calidad-y-pruebas-de-software.pdf'),
 	('65310835-39a2-4e1e-8ef1-aedfe3933d9c', 'Inglés Extranjero I', 2, 'El curso de "Inglés Extranjero I" proporciona una introducción al idioma inglés, incluyendo gramática, vocabulario y conversación básica.', 'ingles-extranjero-i.pdf'),
-	
+
 	('3c2e7478-cd8c-49c7-884b-5bee2fd1c3d1', 'Desarrollo de Aplicaciones I', 3, 'El curso de "Desarrollo de Aplicaciones I" se enfoca en la creación de aplicaciones de software, incluyendo conceptos de diseño de software y programación orientada a objetos.', 'desarrollo-de-aplicaciones-i.pdf'),
 	('35d0aede-0d3c-4140-bea9-809068bf96fe', 'Desarrollo de Aplicaciones Móviles', 3, 'Este curso se enfoca en el desarrollo de aplicaciones móviles para diversas plataformas y dispositivos, incluyendo aspectos de diseño y usabilidad.', 'desarrollo-de-aplicaciones-moviles.pdf'),
 	('327e25f2-7097-45e7-b915-285493fd8c50', 'Análisis del Entorno de Negocios', 2, 'El curso de "Análisis del Entorno de Negocios" proporciona una comprensión de los factores externos que afectan a las organizaciones y cómo analizarlos para tomar decisiones informadas.', 'analisis-del-entorno-de-negocios.pdf'),
@@ -252,10 +252,10 @@ VALUES
 	('f53b7b20-2bcd-4592-8efd-6a1b30bb9b76', 'Programación Web I', 3, 'El curso de "Programación Web I" se centra en la introducción a las tecnologías y conceptos fundamentales para desarrollar aplicaciones web. Los estudiantes aprenderán sobre HTML, CSS y JavaScript.', 'programacion-web-i.pdf'),
 	('9f84abcb-0246-4a3f-8993-eaa621b44dc5', 'Desarrollo de Aplicaciones Empresariales I', 3, 'El curso de "Desarrollo de Aplicaciones Empresariales I" se centra en la creación de soluciones de software para empresas, incluyendo sistemas empresariales y bases de datos.', 'desarrollo-de-aplicaciones-empresariales-i.pdf'),
 	('2642af00-6ea9-4df6-9c1b-1dd94091ed33', 'Inglés Extranjero II', 2, 'Este curso es una continuación de "Inglés Extranjero I" y se enfoca en el desarrollo de habilidades de comunicación en inglés en situaciones cotidianas.', 'ingles-extranjero-ii.pdf'),
-	
+
 	('56b2dcd6-9e3d-4d44-9b54-daa55c4ce3a4', 'Programación Web II', 3, 'Este curso es una continuación de "Programación Web I" y profundiza en el desarrollo de aplicaciones web dinámicas utilizando tecnologías avanzadas como frameworks de JavaScript y backend.', 'programacion-web-ii.pdf'),
 	('0a5bdac3-ca52-441a-bc2a-b6fd141de409', 'Desarrollo de Aplicaciones II', 3, 'Este curso es una continuación de "Desarrollo de Aplicaciones I" y se adentra en aspectos más avanzados del desarrollo de aplicaciones, incluyendo bases de datos y diseño de interfaces de usuario.', 'desarrollo-de-aplicaciones-ii.pdf'),
-	('a23e57ea-529d-410e-841d-290a2862ec03', 'Aplicaciones Móviles para Android', 3, 'El curso de "Aplicaciones Móviles para Android" se enfoca en el desarrollo de aplicaciones para dispositivos Android utilizando lenguajes y herramientas específicas.', 'aplicaciones-moviles-para-android.pdf'),	
+	('a23e57ea-529d-410e-841d-290a2862ec03', 'Aplicaciones Móviles para Android', 3, 'El curso de "Aplicaciones Móviles para Android" se enfoca en el desarrollo de aplicaciones para dispositivos Android utilizando lenguajes y herramientas específicas.', 'aplicaciones-moviles-para-android.pdf'),
 	('415d6fcd-3292-4ff5-bb3f-82f67a5d9033', 'Aplicaciones Móviles para iPhone', 3, 'Este curso aborda el desarrollo de aplicaciones móviles para dispositivos iPhone y iOS, incluyendo el uso de Swift y herramientas de desarrollo de Apple.', 'aplicaciones-moviles-para-iphone.pdf'),
 	('695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4', 'Desarrollo de Aplicaciones Empresariales II', 3, 'Este curso es una continuación de "Desarrollo de Aplicaciones Empresariales I" y profundiza en el desarrollo de sistemas empresariales y soluciones tecnológicas avanzadas.', 'desarrollo-de-aplicaciones-empresariales-ii.pdf'),
 	('e8f84455-93ef-4583-921c-2f7f82ad42dd', 'Integración de Aplicaciones', 3, 'El curso de "Integración de Aplicaciones" explora cómo integrar sistemas y aplicaciones tecnológicas en entornos empresariales, garantizando la interoperabilidad.', 'integracion-de-aplicaciones.pdf'),
@@ -264,7 +264,7 @@ VALUES
 	('4f71edc9-6c89-4812-81cf-8b5477c8541e', 'Programación Avanzada de Base de Datos', 3, 'El curso de "Programación Avanzada de Base de Datos" profundiza en el diseño y programación de bases de datos complejas, incluyendo optimización y seguridad.', 'programacion-avanzada-de-base-de-datos.pdf'),
 	('5857f1fe-1a12-4f97-80fc-2e31af5d695c', 'Análisis y Diseño de Sistemas II', 3, 'Este curso es una continuación de "Análisis y Diseño de Sistemas I" y profundiza en las técnicas avanzadas de análisis y diseño de sistemas de software.', 'analisis-y-diseno-de-sistemas-ii.pdf'),
 	('20ad25e5-2ef1-4b57-9da4-23c7f0f59cd9', 'Inglés Extranjero III', 2, 'El curso de "Inglés Extranjero III" avanza en las habilidades de inglés, incluyendo comprensión auditiva y expresión oral y escrita.', 'ingles-extranjero-iii.pdf'),
-	
+
 	('1fd08d7a-5395-4c1b-b3f1-81ff463ab64d', 'Analítica de Sistemas Empresariales', 3, 'Este curso explora el análisis de sistemas empresariales, incluyendo la recopilación y análisis de datos para mejorar la toma de decisiones en las organizaciones.', 'analitica-de-sistemas-empresariales.pdf');
 
 /* admin */
@@ -272,9 +272,6 @@ INSERT INTO users values (uuid(), 'Manuel', 'Peña Lopez', '1885-05-24', 'Av los
 
 /* profesor  al menos 10 */
 ## INSERT INTO users values (uuid(), '', '');
-
-/* constraseña hasheada para spring boot == isil20203, para todos los alumnos */
- update users set password = '$2a$10$YmI8mkcnKEAhQKnot.gGgOFUHRAeKwy10iHm00MVS14Q2aqHTB6FC' where user_type = 3 OR user_type = 2;
 
 /* igual pero para el admin === admin123 */
 update users set password = '$2a$10$BOm6GwouvlF88FLq7auaIO9BzbUCtcDMfZ/zU9o2IyqAJ4x.Pb0ZC' where email = 'admin@isil.pe';
@@ -319,6 +316,8 @@ VALUES
     ('fdf6befb-67b1-11ee-ad27-0242ac110002', 'Andrés', 'López Sánchez', '1982-01-09', 'Avenida del Mar 456', 0, '56230033', 'isil20203', 'andres@email.com', null, null, NOW(), 0, null, 2),
     ('0211c8be-67b2-11ee-ad27-0242ac110002', 'Valeria', 'Gómez Martínez', '1974-07-14', 'Calle de la Estrella 123', 0, '62311115', 'isil20203', 'valeria@email.com', null, null, NOW(), 0, null, 2);
 
+/* constraseña hasheada para spring boot == isil20203, para todos los alumnos */
+update users set password = '$2a$10$YmI8mkcnKEAhQKnot.gGgOFUHRAeKwy10iHm00MVS14Q2aqHTB6FC' where user_type = 3 OR user_type = 2;
 
 CREATE VIEW classroom_view as
 SELECT c.id_classroom, c.nrc, c.school_day, c.start_time, c.end_time, c.link_meet, c.total_hours,
@@ -423,3 +422,18 @@ VALUES
 
 SELECT * FROM classrooms;
 select * from classroom_view;
+
+CREATE VIEW user_profile AS
+SELECT u.id_user, u.firstname, u.surnames, u.email, u.phone, u.photo,
+       u.address, u.birthday, u.doc_id, c.title career
+FROM users u LEFT JOIN careers c ON u.id_career = c.id_career;
+
+CREATE PROCEDURE getProfile(IN id_user_ VARCHAR(36))
+BEGIN
+    SELECT u.id_user, u.firstname, u.surnames, u.email, u.phone, u.photo,
+           u.address, u.birthday, u.doc_id, c.title career
+    FROM users u LEFT JOIN careers c ON u.id_career = c.id_career
+    WHERE id_user = id_user_;
+END;
+
+CALL getProfile('f97ad5f8-67b1-11ee-ad27-0242ac110002');
