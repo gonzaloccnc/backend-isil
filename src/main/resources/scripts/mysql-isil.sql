@@ -465,3 +465,18 @@ FROM classrooms c
          INNER JOIN users u ON c.id_teacher = u.id_user
          LEFT JOIN class_students cs ON c.id_classroom = cs.id_classroom
          LEFT JOIN users csd ON csd.id_user = cs.id_student;
+
+CREATE VIEW course_view as
+select
+ co.id_course,
+    co.course_name,
+    co.credits,
+    co.description,
+    csd.id_user as id_student,
+    co.syllabus
+ FROM classrooms c
+         INNER JOIN courses co ON c.id_course = co.id_course
+         INNER JOIN users u ON c.id_teacher = u.id_user
+         LEFT JOIN class_students cs ON c.id_classroom = cs.id_classroom
+         LEFT JOIN users csd ON csd.id_user = cs.id_student;
+

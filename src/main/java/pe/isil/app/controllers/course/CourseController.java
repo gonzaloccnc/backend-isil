@@ -5,8 +5,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.isil.app.domain.dtos.ErrorDto;
 import pe.isil.app.domain.models.Course;
+import pe.isil.app.domain.models.DetailClass;
 import pe.isil.app.domain.repos.ICourseRepo;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -34,6 +36,8 @@ public class CourseController {
         // Devolver el curso creado en la respuesta
         return ResponseEntity.status(201).body(createdCourse);
     }
+
+
 
     @PutMapping("/update/{courseId}")
     public ResponseEntity<Object> updateCourse(@RequestBody Course updatedCourse, @PathVariable("courseId") String courseId) {
