@@ -43,7 +43,7 @@ public class ProfileController {
     );
   }
 
-  @PostMapping("/{id}")
+  @PatchMapping("/{id}")
   @Transactional
   public ResponseEntity<?> updateProfile(@PathVariable String id, @RequestBody User user) {
     var userDb = userRepo.findById(id).orElse(null);

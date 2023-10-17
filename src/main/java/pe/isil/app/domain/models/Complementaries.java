@@ -26,5 +26,5 @@ public class Complementaries {
     private String link_file;
     private LocalDate upload_date;
 
-    private String id_classroom;
+    private String idClassroom;
 }
