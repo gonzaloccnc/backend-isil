@@ -11,6 +11,7 @@ import pe.isil.app.domain.repos.IComplementariesRepo;
 
 import java.rmi.server.UID;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -36,15 +37,15 @@ public class ComplementariesController {
         updateComplementaries.setId_complementary(id_complementary);
         updateComplementaries.setTitle(updateComplementaries.getTitle());
         updateComplementaries.setLink_file(updateComplementaries.getLink_file());
-        updateComplementaries.setId_classroom(updateComplementaries.getId_classroom());
+        updateComplementaries.setIdClassroom(updateComplementaries.getIdClassroom());
 
         updateComplementaries.setUpload_date(complementariesFromDB.getUpload_date());
 
         return complementariesService.save(updateComplementaries);
-
-
     }
 
-
-
+    @GetMapping("/{idClass}")
+    public List<Complementaries> getComplementaries(@PathVariable String idClass) {
+        return complementariesService.findAllByIdClassroom(idClass);
+    }
 }
