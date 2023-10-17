@@ -437,3 +437,31 @@ BEGIN
 END;
 
 CALL getProfile('f97ad5f8-67b1-11ee-ad27-0242ac110002');
+
+CREATE VIEW class_details_view AS
+SELECT
+    c.id_classroom,
+    c.nrc,
+    c.school_day,
+    c.link_meet,
+    c.total_hours,
+    c.modality,
+    c.campus,
+    c.start_date,
+    c.end_date,
+    c.start_time,
+    c.end_time,
+    co.id_course,
+    co.course_name,
+    co.description,
+    csd.id_user as id_student,
+    u.id_user as id_teacher,
+    u.firstname as teacher_firstname,
+    u.surnames as teacher_surnames,
+    csd.firstname as student_firstname,
+    csd.surnames as student_surnames
+FROM classrooms c
+         INNER JOIN courses co ON c.id_course = co.id_course
+         INNER JOIN users u ON c.id_teacher = u.id_user
+         LEFT JOIN class_students cs ON c.id_classroom = cs.id_classroom
+         LEFT JOIN users csd ON csd.id_user = cs.id_student;
