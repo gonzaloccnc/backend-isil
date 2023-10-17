@@ -79,7 +79,19 @@ public class ProfileController {
      );
 
     var updatedUser = userRepo.save(userDb);
-    var userProfile = userProfileRepo.getProfile(updatedUser.getIdUser());
+    var userProfile = UserProfile
+        .builder()
+        .idUser(updatedUser.getIdUser())
+        .firstname(updatedUser.getFirstname())
+        .surnames(updatedUser.getSurnames())
+        .birthday(updatedUser.getBirthday())
+        .address(updatedUser.getAddress())
+        .docId(updatedUser.getDocId())
+        .email(updatedUser.getEmail())
+        .phone(updatedUser.getPhone())
+        .photo(updatedUser.getPhoto())
+        .career(updatedUser.getIdCareer())
+        .build();
 
     return ResponseEntity.ok(
         MonoDto.builder()
