@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import pe.isil.app.domain.dtos.MonoDto;
 import pe.isil.app.domain.dtos.PageableDto;
 import pe.isil.app.domain.models.ClassroomView;
+import pe.isil.app.domain.models.CourseView;
+import pe.isil.app.domain.models.DetailClass;
 import pe.isil.app.domain.repos.IClassroomViewRepo;
 import pe.isil.app.domain.repos.IContentRepo;
+import pe.isil.app.domain.repos.ICourseDetailRepo;
+import pe.isil.app.domain.repos.ICourseRepo;
 import pe.isil.app.domain.utils.PageableUtil;
 
 import java.util.List;
@@ -25,6 +29,7 @@ public class UserController {
 
   private final IClassroomViewRepo classroomViewRepo;
   private final IContentRepo iContentRepo;
+  private final ICourseDetailRepo iCourseDetailRepo;
 
   @GetMapping("/classes")
   ResponseEntity<?> getClasses(
@@ -74,6 +79,10 @@ public class UserController {
             .build()
     );
 
+  }
+  @GetMapping("/course/{idStudent}")
+  public List<CourseView> getAllStudent(@PathVariable String idStudent) {
+    return iCourseDetailRepo.findAllByIdStudent(idStudent);
   }
 
 }
