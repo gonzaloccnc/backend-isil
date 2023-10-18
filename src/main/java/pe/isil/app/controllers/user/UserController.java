@@ -80,7 +80,7 @@ public class UserController {
     );
 
   }
-  @GetMapping("/course/{idStudent}")
+  @GetMapping("/course/own/{idStudent}")
   public List<CourseView> getAllStudent(@PathVariable String idStudent) {
     return iCourseDetailRepo.findAllByIdStudent(idStudent);
   }

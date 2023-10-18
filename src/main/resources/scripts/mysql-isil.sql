@@ -480,3 +480,17 @@ select
          LEFT JOIN class_students cs ON c.id_classroom = cs.id_classroom
          LEFT JOIN users csd ON csd.id_user = cs.id_student;
 
+
+/* solo hagan insert en tabla contents cada curso debe tener maximo 16 contenidos y en orden */
+/*
+   hagan insert de class_student registren en las clases ya existentes que un alumno
+   no pase de mas de 8 clases registradas, si quieren registren a sus usuarios al menos
+   registre a 10 alumnos con 7 clases maximo y si pueden escogan una clase y a los 10
+   ponganlos en la misma clase y asi hasta que el alumno tenga 7 clases maximo y las clases tengan varios
+   alumnos, fijence que no haiga conflicto en los horarios, es decir si una clase
+   esta programada el lunes a las 7am, el mismo alumno no deberia tener otra clase a esa hora del mismo
+   dia.
+*/
+/* coloquen los inserst antes de esto ^^^^^^^*/
+UPDATE contents SET link_file = 'https://res.cloudinary.com/durrquwiy/image/upload/v1696636531/syllabus/30015-SILABO_tsaov5.pdf';
+
