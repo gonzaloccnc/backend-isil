@@ -420,6 +420,120 @@ VALUES
     ('5d1a9187-67b9-11ee-ad27-0242ac110002', '3306', 'Sábado', '09:00:00', '10:50:00', 'https://meet.google.com/link36', 2, 2, 'REMOTO', '202320', '2023-04-05', '2023-12-21', 25, 'd6dcd93f-67b1-11ee-ad27-0242ac110002', '5df91abb-1655-49bb-8c13-186b2b1e3efc');
 
 
+
+INSERT INTO contents
+(title, description, link_file ,num_order,id_course)
+values
+(' T01 - Computación en la nube','Conceptos basicos de computacion en la nube','',1,'0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+(' T02 - Servicios AWS', 'Explora los servicios de Amazon Web Services (AWS) y aprende cómo utilizarlos para desplegar aplicaciones y gestionar recursos en la nube.', '', 2, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T03 - Servicios informáticos y redes', 'Comprende los principios fundamentales de los servicios informáticos y las redes en el contexto de la computación en la nube, incluyendo conceptos como la virtualización y la configuración de redes en entornos virtuales.', '', 3, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T04 - Seguridad de arquitectura AWS', 'Profundiza en las mejores prácticas de seguridad en la arquitectura de Amazon Web Services, incluyendo la gestión de accesos, el cifrado de datos y la protección contra amenazas comunes en la nube.', '', 4, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T05 - Bucket S3', 'Descubre Amazon S3 (Simple Storage Service) y aprende a crear y gestionar buckets para almacenar y recuperar datos en la nube de manera escalable y segura.', '', 5, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T06 - RDS (parte 1)', 'Explora Amazon RDS (Relational Database Service) en la primera parte de esta serie, centrándote en la creación y gestión de bases de datos relacionales en la nube sin preocuparte por la infraestructura subyacente.', '', 6, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T07 - RDS (parte 2)', 'Continúa explorando Amazon RDS en la segunda parte, aprendiendo sobre la replicación de datos, la optimización del rendimiento y las estrategias de copia de seguridad para bases de datos en la nube.', '', 7, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T08 - Parcial', 'Realiza una evaluación parcial para poner a prueba tus conocimientos sobre los conceptos básicos de computación en la nube, incluyendo temas como servicios de AWS, seguridad y gestión de datos en la nube.', '', 8, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T09 - Biblioteca de códigos', 'Crea una biblioteca de códigos reutilizables para tus proyectos en la nube, explorando las mejores prácticas para el desarrollo de aplicaciones escalables y eficientes en AWS y otros servicios en la nube.', '', 9, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T10 - Operaciones de servicio', 'Aprende sobre las operaciones de servicio en la nube, incluyendo la monitorización, el escalado automático y la gestión de incidencias para garantizar el rendimiento y la disponibilidad de tus aplicaciones en la nube.', '', 10, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T11 - Modelos de seguridad', 'Explora los diversos modelos de seguridad en la nube, incluyendo la autenticación multifactor, la gestión de claves y los servicios de seguridad gestionada para proteger tus recursos y datos en entornos cloud.', '', 11, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T12 - Modelos de uso', 'Comprende los diferentes modelos de uso en la computación en la nube, incluyendo IaaS (Infraestructura como Servicio), PaaS (Plataforma como Servicio) y SaaS (Software como Servicio), y cómo elegir el enfoque adecuado para tus necesidades empresariales.', '', 12, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T13 - Arquitectura del proyecto', 'Diseña la arquitectura de un proyecto en la nube, considerando aspectos como la escalabilidad, la redundancia y la seguridad. Aprende a utilizar servicios específicos de AWS para implementar soluciones efectivas en la nube.', '', 13, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T14 - Implementación del proyecto', 'Ponte manos a la obra y lleva a cabo la implementación práctica del proyecto en la nube que has diseñado. Aplica tus conocimientos para desplegar aplicaciones, gestionar bases de datos y garantizar la seguridad en la nube.', '', 14, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T15 - Aplicación web del proyecto', 'Desarrolla una aplicación web completa utilizando tecnologías en la nube. Aprende sobre el desarrollo frontend y backend en entornos cloud, la gestión de datos y la integración con servicios web para crear una aplicación robusta y escalable.', '', 15, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+('T16 - Final', 'Completa el curso con un examen final que evaluará tus conocimientos sobre todos los aspectos de la computación en la nube que has aprendido. Demuestra tus habilidades en la planificación, implementación y gestión de soluciones en la nube.', '', 16, '0ae79e89-7324-4de7-a1d5-73d9fec44e96'),
+
+
+('T01 - Java EE', 'Introducción a Java EE y sus conceptos básicos para el desarrollo de aplicaciones empresariales en la nube.', ' ', 1, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T02 - Componentes', 'Exploración de los componentes esenciales para el desarrollo y despliegue de aplicaciones en la nube utilizando Java EE.', ' ', 2, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T03 - Aplicativos web', 'Desarrollo de aplicaciones web dinámicas y escalables utilizando las tecnologías de Java EE.', ' ', 3, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T04 - Integración', 'Integración de aplicaciones y servicios web para mejorar la funcionalidad y eficiencia de las aplicaciones en la nube.', ' ', 4, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T05 - Inyección de dependencias', 'Conceptos avanzados de inyección de dependencias para mejorar la modularidad y mantenibilidad de las aplicaciones Java EE.', ' ', 5, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T06 - Spring Framework', 'Exploración del framework Spring para el desarrollo de aplicaciones empresariales robustas y flexibles en la nube.', ' ', 6, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T07 - Spring MVC', 'Desarrollo de aplicaciones web utilizando el patrón de diseño MVC en el contexto del framework Spring.', ' ', 7, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('Parcial', 'Evaluación parcial para evaluar la comprensión de los conceptos y tecnologías Java EE aprendidos hasta ahora.', ' ', 8, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T09 - Reconocimiento de librerías', 'Exploración de librerías y herramientas útiles para el desarrollo eficiente de aplicaciones Java EE en la nube.', ' ', 9, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T10 - Gestión de consultas', 'Gestión eficiente de consultas de bases de datos para mejorar el rendimiento y la eficiencia de las aplicaciones Java EE.', ' ', 10, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T11 - Gestión de transacciones', 'Implementación y gestión de transacciones en aplicaciones Java EE para garantizar la integridad de los datos.', ' ', 11, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T12 - Integración', 'Integración avanzada de sistemas y servicios en aplicaciones Java EE para una funcionalidad completa.', ' ', 12, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T13 - Servicios web', 'Desarrollo y consumo de servicios web en aplicaciones Java EE, incluyendo SOAP y REST.', ' ', 13, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T14 - Servicios REST', 'Implementación de servicios RESTful para la comunicación eficiente y escalable entre aplicaciones.', ' ', 14, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('T15 - Tecnologías de integración', 'Exploración de tecnologías avanzadas para la integración de sistemas y aplicaciones en el entorno Java EE.', ' ', 15, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+('Final', 'Examen final que evaluará el conocimiento y las habilidades adquiridas en todos los aspectos de Java EE para aplicaciones en la nube.', ' ', 16, '695c02d3-2cda-4e70-9b3e-6ddc5c0bc8a4'),
+
+
+('T01 - Inicio del proyecto', 'Introducción al proyecto y establecimiento de los objetivos iniciales. Comprende la definición del propósito del proyecto y la planificación inicial.', ' ', 1, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T02 - Visión del proyecto', 'Establecimiento de la visión del proyecto, identificando metas a largo plazo y los resultados esperados. Comprende la creación de una visión clara y comprensión de los objetivos finales.', ' ', 2, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T03 - Alcance del proyecto', 'Definición del alcance del proyecto, identificando los límites y las fronteras del trabajo a realizar. Comprende la determinación de qué está incluido y qué está excluido en el proyecto.', ' ', 3, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T04 - Planificación del Proyecto', 'Desarrollo detallado del plan del proyecto, incluyendo cronogramas, asignación de recursos y establecimiento de hitos clave. Comprende la planificación de las actividades y los recursos necesarios para el éxito del proyecto.', ' ', 4, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T05 - Modelamiento de solución tecnológica', 'Exploración y desarrollo del modelo tecnológico para el proyecto, incluyendo arquitectura, herramientas y tecnologías a utilizar. Comprende la identificación de soluciones tecnológicas adecuadas para los requisitos del proyecto.', ' ', 5, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T06 - Diseño de solución', 'Creación detallada del diseño del sistema, incluyendo diagramas, interfaces y estructuras de datos. Comprende la creación de un plano detallado para la implementación del proyecto.', ' ', 6, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T07 - Soluciones tecnológicas', 'Implementación y evaluación de soluciones tecnológicas para el proyecto, incluyendo herramientas y frameworks específicos. Comprende la aplicación de tecnologías para alcanzar los objetivos del proyecto.', ' ', 7, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('Parcial', 'Evaluación parcial para evaluar los conocimientos y habilidades adquiridos hasta este punto en el proyecto.', ' ', 8, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T09 - Versiones del proyecto', 'Gestión de versiones y control de cambios en el proyecto, incluyendo el seguimiento de las modificaciones y la documentación de versiones anteriores. Comprende la organización de diferentes versiones del proyecto durante su desarrollo.', ' ', 9, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T10 - Calidad de procesos', 'Implementación de procesos de control de calidad para garantizar la excelencia en la ejecución del proyecto. Comprende la aplicación de estándares de calidad y prácticas recomendadas.', ' ', 10, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T11 - Control de calidad', 'Evaluación y seguimiento continuo de la calidad del proyecto, incluyendo pruebas y revisión de los resultados. Comprende la identificación y corrección de posibles problemas y desviaciones.', ' ', 11, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T12 - Mejora continua', 'Implementación de procesos para la mejora continua del proyecto, incluyendo retroalimentación y ajuste constante. Comprende la identificación de áreas de mejora y la implementación de soluciones para optimizar el proyecto.', ' ', 12, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T13 - Trabajo colaborativo', 'Fomento del trabajo en equipo y la colaboración efectiva entre los miembros del proyecto. Comprende la promoción de la comunicación y la cooperación para lograr los objetivos comunes del proyecto.', ' ', 13, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T14 - Soluciones tecnológicas', 'Implementación adicional de soluciones tecnológicas para abordar desafíos específicos del proyecto. Comprende la aplicación de tecnologías adicionales para mejorar la funcionalidad y el rendimiento del proyecto.', ' ', 14, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('T15 - Cierre del Proyecto', 'Finalización del proyecto, incluyendo la evaluación final, la documentación y la entrega del producto o servicio al cliente. Comprende la conclusión ordenada y efectiva de todas las actividades del proyecto.', ' ', 15, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+('Final', 'Evaluación final que evaluará los conocimientos y habilidades adquiridos en todos los aspectos del proyecto. Demuestra tu capacidad para planificar, implementar y gestionar soluciones tecnológicas efectivas.', ' ', 16, '8a27a197-5bce-441f-887e-3e57b73eae1c'),
+
+
+('T01 - Integración de aplicaciones', 'Explora las técnicas y tecnologías para integrar diversas aplicaciones en un entorno empresarial. Comprende los desafíos y mejores prácticas para lograr una integración efectiva y sin problemas.', ' ', 1, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T02 - Migración de aplicaciones', 'Aprende sobre las estrategias y herramientas necesarias para migrar aplicaciones legacy a plataformas modernas y eficientes. Comprende los procesos y consideraciones clave para una migración exitosa.', ' ', 2, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T03 - Integración web', 'Exploración de las tecnologías y estándares para integrar aplicaciones a través de interfaces web. Comprende los protocolos y métodos para lograr una integración efectiva en entornos web.', ' ', 3, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T04 - Integración de datos', 'Aprende sobre las técnicas y herramientas para integrar y transformar datos de diversas fuentes. Comprende los procesos de limpieza, transformación y carga para asegurar la calidad y coherencia de los datos integrados.', ' ', 4, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T05 - Integración en la nube', 'Exploración de las estrategias y tecnologías para lograr una integración efectiva en entornos de nube. Comprende los servicios y herramientas específicas para integrar aplicaciones y datos en plataformas de nube.', ' ', 5, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T06 - Automatización de procesos', 'Aprende sobre las técnicas y herramientas para automatizar procesos empresariales. Comprende la modelización, ejecución y monitorización de flujos de trabajo automatizados para mejorar la eficiencia operativa.', ' ', 6, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T07 - Optimización de procesos', 'Exploración de las estrategias para optimizar procesos empresariales integrados. Comprende el análisis de procesos, identificación de áreas de mejora y aplicación de soluciones para lograr eficiencia y calidad mejoradas.', ' ', 7, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('Parcial', 'Evaluación parcial para evaluar la comprensión de los conceptos y técnicas de integración aprendidos hasta ahora.', ' ', 8, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T09 - Gestión de la continuidad del negocio', 'Aprende sobre las estrategias y mejores prácticas para garantizar la continuidad del negocio en entornos integrados. Comprende la planificación, implementación y prueba de planes de continuidad para mitigar riesgos.', ' ', 9, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T10 - Seguridad en la integración', 'Exploración de las medidas y tecnologías para asegurar la seguridad en los procesos y datos integrados. Comprende los controles de seguridad, la autenticación y el cifrado para proteger la integridad y confidencialidad de la información.', ' ', 10, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T11 - Monitoreo y análisis', 'Aprende sobre las técnicas y herramientas para monitorear y analizar procesos integrados. Comprende la recopilación de datos, análisis de rendimiento y generación de informes para mejorar la visibilidad y toma de decisiones.', ' ', 11, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T12 - Mejora continua', 'Exploración de las estrategias para la mejora continua de los procesos integrados. Comprende la retroalimentación, análisis de resultados y ajuste constante para lograr procesos más eficientes y efectivos.', ' ', 12, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T13 - Gestión del cambio', 'Aprende sobre las técnicas para gestionar el cambio en entornos de integración. Comprende la planificación, comunicación y mitigación de resistencias para asegurar una transición suave durante los cambios en los procesos integrados.', ' ', 13, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T14 - Innovación en la integración', 'Exploración de las estrategias para fomentar la innovación en los procesos y tecnologías integrados. Comprende la identificación de oportunidades, experimentación y adopción de nuevas tecnologías para lograr procesos más eficientes y competitivos.', ' ', 14, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('T15 - Evaluación de tecnologías', 'Aprende sobre las técnicas para evaluar y seleccionar tecnologías de integración. Comprende la comparación de soluciones, evaluación de costos y beneficios, y toma de decisiones informada para seleccionar las tecnologías adecuadas.', ' ', 15, 'e8f84455-93ef-4583-921c-2f7f82ad42dd'),
+('Final', 'Evaluación final que evaluará el conocimiento y las habilidades adquiridas en todos los aspectos de la integración de aplicaciones empresariales. Demuestra tu capacidad para planificar, implementar y gestionar procesos de integración efectivos.', ' ', 16, 'e8f84455-93ef-4583-921c-2f7f82ad42dd');
+
+
+
+INSERT INTO class_students (id_classroom, id_student)
+VALUES
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '082da7bb-ea0a-4365-be8f-f32d4013c725'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '0a9e8d54-f39f-4365-9921-76480490e92e'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '10b26fb3-7f1e-413c-97be-2af8d1ced4b9'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '11500591-f07e-4171-98f9-2c4b75454e03'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '1597db82-e40a-421e-864b-a99b541e8348'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '1ada31f2-5d15-4cfa-91a1-a9ec984ee859'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '1c995ab5-3e36-4bd5-bf9c-13a866d849d8'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '22dc64a6-e31a-4fd7-9d7b-500485f535a9'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '2896dbd6-d784-4ff5-86ae-5da1b2768d0c'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '2bcf601e-d34b-4f44-85c2-c301a02363fd'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '2cda6a81-2ff3-4e49-93cb-f1ccd48cf1af'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '2ce1bed7-3d30-456c-9985-6a96da971254'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '37008c62-df5e-4171-89c9-94b2e5d2154e'),
+('1a497a1b-67b9-11ee-ad27-0242ac110002', '3c02a582-2453-4d98-aecb-b89bbc7c55a2');
+
+
+INSERT INTO class_students (id_classroom, id_student)
+VALUES
+('5800b821-67b9-11ee-ad27-0242ac110002', '082da7bb-ea0a-4365-be8f-f32d4013c725'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '0a9e8d54-f39f-4365-9921-76480490e92e'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '10b26fb3-7f1e-413c-97be-2af8d1ced4b9'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '11500591-f07e-4171-98f9-2c4b75454e03'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '1597db82-e40a-421e-864b-a99b541e8348'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '1ada31f2-5d15-4cfa-91a1-a9ec984ee859'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '1c995ab5-3e36-4bd5-bf9c-13a866d849d8'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '22dc64a6-e31a-4fd7-9d7b-500485f535a9'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '2896dbd6-d784-4ff5-86ae-5da1b2768d0c'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '2bcf601e-d34b-4f44-85c2-c301a02363fd'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '2cda6a81-2ff3-4e49-93cb-f1ccd48cf1af'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '2ce1bed7-3d30-456c-9985-6a96da971254'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '37008c62-df5e-4171-89c9-94b2e5d2154e'),
+('5800b821-67b9-11ee-ad27-0242ac110002', '3c02a582-2453-4d98-aecb-b89bbc7c55a2');
+
+
+
 SELECT * FROM classrooms;
 select * from classroom_view;
 
@@ -428,13 +542,18 @@ SELECT u.id_user, u.firstname, u.surnames, u.email, u.phone, u.photo,
        u.address, u.birthday, u.doc_id, c.title career
 FROM users u LEFT JOIN careers c ON u.id_career = c.id_career;
 
+DELIMITER //
+
 CREATE PROCEDURE getProfile(IN id_user_ VARCHAR(36))
 BEGIN
     SELECT u.id_user, u.firstname, u.surnames, u.email, u.phone, u.photo,
-           u.address, u.birthday, u.doc_id, c.title career
-    FROM users u LEFT JOIN careers c ON u.id_career = c.id_career
-    WHERE id_user = id_user_;
-END;
+           u.address, u.birthday, u.doc_id, c.title as career
+    FROM users u
+    LEFT JOIN careers c ON u.id_career = c.id_career
+    WHERE u.id_user = id_user_;
+END//
+
+DELIMITER ;
 
 CALL getProfile('f97ad5f8-67b1-11ee-ad27-0242ac110002');
 
