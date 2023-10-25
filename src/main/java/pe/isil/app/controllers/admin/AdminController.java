@@ -100,6 +100,43 @@ public class AdminController {
     );
   }
 
+  @GetMapping("/courses/name/{name}")
+  ResponseEntity<?> getCourseByName(
+      @PathVariable String name,
+      @PageableDefault(size = 20) Pageable pageable,
+      HttpServletRequest req
+  ) {
+    var existCourse = courseRepo.findCourseByCourseNameContains(pageable, name);
+
+    if(existCourse.getNumber() >= existCourse.getTotalPages() & existCourse.getTotalPages() != 0) {
+      return ResponseEntity.status(400).body(
+          PageableDto
+              .<List<Course>>builder()
+              .ok(false)
+              .message(
+                  "El contenido de la pagina debe ser menor a " + existCourse.getTotalPages()
+              )
+              .build()
+      );
+    }
+
+    var next = PageableUtil.getNextPage(existCourse);
+    var prev = PageableUtil.getPrevPage(existCourse);
+
+    return ResponseEntity.ok(
+        PageableDto.builder()
+            .data(existCourse.getContent())
+            .hints(existCourse.getTotalElements())
+            .page(existCourse.getNumber())
+            .pageSize(existCourse.getSize())
+            .totalPages(existCourse.getTotalPages())
+            .prev(prev == null ? null : PageableUtil.getDomain(req) + prev)
+            .next(next == null ? null : PageableUtil.getDomain(req) + next)
+            .ok(true)
+            .build()
+    );
+  }
+
   @PostMapping("/classes")
   ResponseEntity<?> addClass(@RequestBody Classroom classroom, HttpServletRequest req) {
     var admin = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -217,4 +254,41 @@ public class AdminController {
     );
   }
 
+  @GetMapping("/classes/name/{name}")
+  ResponseEntity<?> getClassByName(
+      @PathVariable String name,
+      @PageableDefault(size = 20) Pageable pageable,
+      HttpServletRequest req
+  ) {
+
+    var classFind = classroomViewRepo.findAllByCourseContains(pageable, name);
+
+    if (classFind.getNumber() >= classFind.getTotalPages() & classFind.getTotalPages() != 0) {
+      return ResponseEntity.status(400).body(
+          PageableDto
+              .<List<Course>>builder()
+              .ok(false)
+              .message(
+                  "El contenido de la pagina debe ser menor a " + classFind.getTotalPages()
+              )
+              .build()
+      );
+    }
+
+    var next = PageableUtil.getNextPage(classFind);
+    var prev = PageableUtil.getPrevPage(classFind);
+
+    return ResponseEntity.ok(
+        PageableDto.builder()
+            .data(classFind.getContent())
+            .hints(classFind.getTotalElements())
+            .page(classFind.getNumber())
+            .pageSize(classFind.getSize())
+            .totalPages(classFind.getTotalPages())
+            .prev(prev == null ? null : PageableUtil.getDomain(req) + prev)
+            .next(next == null ? null : PageableUtil.getDomain(req) + next)
+            .ok(true)
+            .build()
+    );
+  }
 }
