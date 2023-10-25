@@ -3,6 +3,7 @@ package pe.isil.app.domain.models;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.PreUpdate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 import pe.isil.app.domain.dtos.ClassroomDto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity(name = "classrooms")
@@ -20,10 +22,8 @@ public class Classroom {
   private String nrc;
   private String schoolDay;
 
-  //@JsonFormat(pattern = "hh:mm:ss")
   private LocalTime startTime;
 
-  //@JsonFormat(pattern = "hh:mm:ss")
   private LocalTime endTime;
 
   private String linkMeet;
@@ -42,26 +42,20 @@ public class Classroom {
   private String idTeacher;
   private String idCourse;
 
+  private String userCreation;
+  private String userUpdating;
+
+  private LocalDateTime updatedDate;
+
   public ClassroomDto toDto() {
 
     var dto = new ClassroomDto();
 
     switch (modality) {
-      case 1 -> {
-        dto.setModality("VIRTUAL");
-      }
-
-      case 2 -> {
-        dto.setModality("REMOTO");
-      }
-
-      case 3 -> {
-        dto.setModality("SEMIREMOTO");
-      }
-
-      default -> {
-        dto.setModality("PRESENCIAL");
-      }
+      case 1 -> dto.setModality("VIRTUAL");
+      case 2 -> dto.setModality("REMOTO");
+      case 3 -> dto.setModality("SEMIREMOTO");
+      default -> dto.setModality("PRESENCIAL");
     }
 
     return ClassroomDto
@@ -81,5 +75,10 @@ public class Classroom {
         .maxMembers(maxMembers)
         .idTeacher(idTeacher)
         .idCourse(idCourse).build();
+  }
+
+  @PreUpdate
+  private void setDateOfUpdate() {
+    this.setUpdatedDate(LocalDateTime.now());
   }
 }

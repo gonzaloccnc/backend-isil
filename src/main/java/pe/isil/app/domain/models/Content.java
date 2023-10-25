@@ -1,23 +1,19 @@
 package pe.isil.app.domain.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "contents")
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+import java.time.LocalDateTime;
 
+@Entity(name = "contents") @Data
+@Builder @AllArgsConstructor @NoArgsConstructor
 public class Content {
 
-    @Id
-    private int id_content;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idContent;
 
     private String title;
 
@@ -27,9 +23,16 @@ public class Content {
 
     private int numOrder;
 
-    //@JoinColumn(name = "idCourse", referencedColumnName = "id_course")
-    //private Course course;
-
     private String idCourse;
+
+    private String userCreation;
+    private String userUpdating;
+
+    private LocalDateTime updatedDate;
+
+    @PreUpdate
+    private void setDateOfUpdate() {
+        this.setUpdatedDate(LocalDateTime.now());
+    }
 }
 

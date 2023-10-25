@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import pe.isil.app.domain.dtos.ClassroomDto;
 import pe.isil.app.domain.dtos.ErrorDto;
@@ -13,6 +14,7 @@ import pe.isil.app.domain.dtos.MonoDto;
 import pe.isil.app.domain.dtos.PageableDto;
 import pe.isil.app.domain.models.Classroom;
 import pe.isil.app.domain.models.Course;
+import pe.isil.app.domain.models.User;
 import pe.isil.app.domain.repos.IClassroomRepo;
 import pe.isil.app.domain.repos.IClassroomViewRepo;
 import pe.isil.app.domain.repos.ICourseRepo;
@@ -100,6 +102,7 @@ public class AdminController {
 
   @PostMapping("/classes")
   ResponseEntity<?> addClass(@RequestBody Classroom classroom, HttpServletRequest req) {
+    var admin = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
     var existCourse = courseRepo.findById(classroom.getIdCourse()).orElse(null);
     var existTeacher = userRepo.findById(classroom.getIdTeacher()).orElse(null);
@@ -118,6 +121,7 @@ public class AdminController {
     }
 
     classroom.setIdClassroom(UUID.randomUUID().toString());
+    classroom.setUserCreation(admin.getIdUser());
 
     var classroomSave = classroomRepo.save(classroom);
     var classView = classroomViewRepo.findByIdClassroom(classroomSave.getIdClassroom());
@@ -138,7 +142,7 @@ public class AdminController {
       @RequestBody Classroom classroom,
       HttpServletRequest req
   ) {
-
+    var admin = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     var existCourse = courseRepo.findById(classroom.getIdCourse()).orElse(null);
     var existTeacher = userRepo.findById(classroom.getIdTeacher()).orElse(null);
     var isTeacher = existTeacher != null && existTeacher.getUserType() == 2;
@@ -170,6 +174,8 @@ public class AdminController {
     }
 
     classroom.setIdClassroom(id);
+    classroom.setUserCreation(existClass.getUserCreation());
+    classroom.setUserUpdating(admin.getIdUser());
 
     var classroomSave = classroomRepo.save(classroom);
     var classView = classroomViewRepo.findByIdClassroom(classroomSave.getIdClassroom());
@@ -205,8 +211,8 @@ public class AdminController {
         MonoDto.<ClassroomDto>builder()
             .data(classFind.toDto())
             .status(200)
-            .message("Curso encontrado")
-            .ok(false)
+            .message("Clase encontrada")
+            .ok(true)
             .build()
     );
   }

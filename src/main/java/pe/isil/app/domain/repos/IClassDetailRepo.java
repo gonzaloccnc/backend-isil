@@ -1,6 +1,5 @@
 package pe.isil.app.domain.repos;
 
-import pe.isil.app.domain.models.Classroom;
 import pe.isil.app.domain.models.DetailClass;
 
 import java.util.List;
