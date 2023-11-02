@@ -25,8 +25,8 @@ public class ComplementariesController {
 
     @PostMapping("/create")
     public Complementaries createComplementaries(@RequestBody Complementaries complementaries) {
-        complementaries.setUpload_date(LocalDate.now());
-        complementaries.setId_complementary(UUID.randomUUID().toString());
+        complementaries.setUploadDate(LocalDate.now());
+        complementaries.setIdComplementary(UUID.randomUUID().toString());
         return complementariesService.save(complementaries);
     }
 
@@ -34,12 +34,12 @@ public class ComplementariesController {
     public Complementaries updateComplementaries(@RequestBody Complementaries updateComplementaries, @PathVariable("id_complementary")String id_complementary){
     Complementaries complementariesFromDB = complementariesService.findById(id_complementary).orElse(null);
 
-        updateComplementaries.setId_complementary(id_complementary);
+        updateComplementaries.setIdComplementary(id_complementary);
         updateComplementaries.setTitle(updateComplementaries.getTitle());
-        updateComplementaries.setLink_file(updateComplementaries.getLink_file());
+        updateComplementaries.setLinkFile(updateComplementaries.getLinkFile());
         updateComplementaries.setIdClassroom(updateComplementaries.getIdClassroom());
 
-        updateComplementaries.setUpload_date(complementariesFromDB.getUpload_date());
+        updateComplementaries.setUploadDate(complementariesFromDB.getUploadDate());
 
         return complementariesService.save(updateComplementaries);
     }

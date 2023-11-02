@@ -14,10 +14,10 @@ import java.time.LocalDate;
 public class Complementaries {
 
     @Id
-    private String id_complementary;
+    private String idComplementary;
     private String title;
-    private String link_file;
-    private LocalDate upload_date;
+    private String linkFile;
+    private LocalDate uploadDate;
 
     private String idClassroom;
 }

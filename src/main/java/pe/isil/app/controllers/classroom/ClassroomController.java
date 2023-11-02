@@ -12,6 +12,7 @@ import pe.isil.app.domain.repos.IClassDetailRepo;
 import pe.isil.app.domain.repos.IClassroomRepo;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/user/classroom")
@@ -19,12 +20,12 @@ import java.util.List;
 public class ClassroomController {
     private final IClassDetailRepo iClassDetailRepo;
     @GetMapping("/teacher/{idTeacher}")
-    public List<DetailClass> getAllClassrooms(@PathVariable String idTeacher) {
+    public Set<DetailClass> getAllClassrooms(@PathVariable String idTeacher) {
         return iClassDetailRepo.findAllByIdTeacher(idTeacher);
     }
 
     @GetMapping("/student/{idStudent}")
-    public List<DetailClass> getAllClassroom(@PathVariable String idStudent) {
+    public Set<DetailClass> getAllClassroom(@PathVariable String idStudent) {
         return iClassDetailRepo.findAllByIdStudent(idStudent);
     }
 

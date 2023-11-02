@@ -126,23 +126,19 @@ CREATE TABLE complementaries (
     foreign key (id_classroom) references classrooms(id_classroom)
 );
 
-CREATE TABLE groups_evaluations (
+CREATE TABLE groups_class (
     id_group INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    upload_date DATETIME NOT NULL DEFAULT NOW(),
-    link_file TEXT NOT NULL,
-    state INT NOT NULL,
-    score DECIMAL(3,1),
-    check (score between 0 and 20)
+    group_name varchar(50)
 );
 
-CREATE TABLE class_groups (
+CREATE TABLE class_groups_students (
     id_classroom VARCHAR(36) NOT NULL,
     id_student VARCHAR(36) NOT NULL,
-	id_group INT NOT NULL REFERENCES groups_evaluations,
-    group_name varchar(50),
+	id_group INT NOT NULL,
     PRIMARY KEY (id_classroom, id_student),
     FOREIGN KEY (id_classroom) REFERENCES classrooms (id_classroom),
-    FOREIGN KEY (id_student) REFERENCES users (id_user)
+    FOREIGN KEY (id_student) REFERENCES users (id_user),
+    FOREIGN KEY (id_group)  REFERENCES groups_class(id_group)
 );
 
 /* CONTRAINTS */
