@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/admin/groups")
+@RequestMapping("/user/groups")
 @RequiredArgsConstructor
 public class GroupsEvaluationsController {
 
