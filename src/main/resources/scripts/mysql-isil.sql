@@ -523,7 +523,6 @@ values
 ('Final', 'Evaluación final que evaluará el conocimiento y las habilidades adquiridas en todos los aspectos de la integración de aplicaciones empresariales. Demuestra tu capacidad para planificar, implementar y gestionar procesos de integración efectivos.', ' ', 16, 'e8f84455-93ef-4583-921c-2f7f82ad42dd', '83b7785f-6f65-11ee-ab19-0242ac110002');
 
 
-
 INSERT INTO class_students (id_classroom, id_student)
 VALUES
 ('1a497a1b-67b9-11ee-ad27-0242ac110002', '082da7bb-ea0a-4365-be8f-f32d4013c725'),
@@ -558,6 +557,202 @@ VALUES
 ('5800b821-67b9-11ee-ad27-0242ac110002', '2ce1bed7-3d30-456c-9985-6a96da971254'),
 ('5800b821-67b9-11ee-ad27-0242ac110002', '37008c62-df5e-4171-89c9-94b2e5d2154e'),
 ('5800b821-67b9-11ee-ad27-0242ac110002', '3c02a582-2453-4d98-aecb-b89bbc7c55a2');
+
+
+INSERT INTO groups_class (group_name)
+VALUES
+('G01 Dev App II'), ('G02 Dev App II'), ('G03 Dev App II'), ('G04 Dev App II'),
+('G01 Dev Sol Cloud'), ('G02 Dev Sol Cloud'), ('G03 Dev Sol Cloud'), ('G04 Dev Sol Cloud'),
+('G01 Com Escrita'), ('G02 Com Escrita'), ('G03 Com Escrita'), ('G04 Com Escrita'),
+('G01 Seg y Cont Sis'), ('G02 Seg y Cont Sis'), ('G03 Seg y Cont Sis'), ('G04 Seg y Cont Sis'),
+('G01 Analít Emp Sis Emp'), ('G02 Analít Emp Sis Emp'), ('G03 Analít Emp Sis Emp'), ('G04 Analít Emp Sis Emp'),
+('G01 Ingles III'), ('G02 Ingles III'), ('G03 Ingles III'), ('G04 Ingles III'),
+('G01 Ingles II'), ('G02 Ingles II'), ('G03 Ingles II'), ('G04 Ingles II'),
+('G01 Anális Ent Neg'), ('G02 Anális Ent Neg'), ('G03 Anális Ent Neg'), ('G04 Anális Ent Neg'),
+('G01 Dev App Móviles'), ('G02 Dev App Móviles'), ('G03 Dev App Móviles'), ('G04 Dev App Móviles'),
+('G01 Intro a la Prog'), ('G02 Intro a la Prog'), ('G03 Intro a la Prog'), ('G04 Intro a la Prog'),
+('G01 Dev App I'), ('G02 Dev App I'), ('G03 Dev App I'), ('G04 Dev App I'),
+('G01 Mod Neg y Startups'), ('G02 Mod Neg y Startups'), ('G03 Mod Neg y Startups'), ('G04 Mod Neg y Startups'),
+('G01 Fund de Mkt'), ('G02 Fund de Mkt'), ('G03 Fund de Mkt'), ('G04 Fund de Mkt'),
+('G01 Apps Móviles iPhone'), ('G02 Apps Móviles iPhone'), ('G03 Apps Móviles iPhone'), ('G04 Apps Móviles iPhone'),
+('G01 Comp Intrapersonales'), ('G02 Comp Intrapersonales'), ('G03 Comp Intrapersonales'), ('G04 Comp Intrapersonales'),
+('G01 Cálculo Cien e Ing'), ('G02 Cálculo Cien e Ing'), ('G03 Cálculo Cien e Ing'), ('G04 Cálculo Cien e Ing'),
+('G01 Prog Avan Base Datos'), ('G02 Prog Avan Base Datos'), ('G03 Prog Avan Base Datos'), ('G04 Prog Avan Base Datos'),
+('G01 Prog Web II'), ('G02 Prog Web II'), ('G03 Prog Web II'), ('G04 Prog Web II'),
+('G01 Desarrollo Resiliencia'), ('G02 Desarrollo Resiliencia'), ('G03 Desarrollo Resiliencia'), ('G04 Desarrollo Resiliencia'),
+('G01 Anális y Diseño Sis II'), ('G02 Anális y Diseño Sis II'), ('G03 Anális y Diseño Sis II'), ('G04 Anális y Diseño Sis II'),
+('G01 Diseño y Desarrollo Web'), ('G02 Diseño y Desarrollo Web'), ('G03 Diseño y Desarrollo Web'), ('G04 Diseño y Desarrollo Web'),
+('G01 Gestión Proyectos'), ('G02 Gestión Proyectos'), ('G03 Gestión Proyectos'), ('G04 Gestión Proyectos'),
+('G01 Diseño y Prog Base Datos'), ('G02 Diseño y Prog Base Datos'), ('G03 Diseño y Prog Base Datos'), ('G04 Diseño y Prog Base Datos'),
+('G01 Ingles I'), ('G02 Ingles I'), ('G03 Ingles I'), ('G04 Ingles I'),
+('G01 Dev App Emp II'), ('G02 Dev App Emp II'), ('G03 Dev App Emp II'), ('G04 Dev App Emp II'),
+('G01 Proy Tecno'), ('G02 Proy Tecno'), ('G03 Proy Tecno'), ('G04 Proy Tecno'),
+('G01 Mat Aplic Cosas'), ('G02 Mat Aplic Cosas'), ('G03 Mat Aplic Cosas'), ('G04 Mat Aplic Cosas'),
+('G01 Gest Dispo Tecno'), ('G02 Gest Dispo Tecno'), ('G03 Gest Dispo Tecno'), ('G04 Gest Dispo Tecno'),
+('G01 Dev App Emp I'), ('G02 Dev App Emp I'), ('G03 Dev App Emp I'), ('G04 Dev App Emp I'),
+('G01 Apps Móviles Android'), ('G02 Apps Móviles Android'), ('G03 Apps Móviles Android'), ('G04 Apps Móviles Android'),
+('G01 Alg y Estruc Datos'), ('G02 Alg y Estruc Datos'), ('G03 Alg y Estruc Datos'), ('G04 Alg y Estruc Datos'),
+('G01 Anális y Diseño Sis I'), ('G02 Anális y Diseño Sis I'), ('G03 Anális y Diseño Sis I'), ('G04 Anális y Diseño Sis I'),
+('G01 Soluc Bas Inter Cosas'), ('G02 Soluc Bas Inter Cosas'), ('G03 Soluc Bas Inter Cosas'), ('G04 Soluc Bas Inter Cosas'),
+('G01 Calidad y Pruebas Soft'), ('G02 Calidad y Pruebas Soft'), ('G03 Calidad y Pruebas Soft'), ('G04 Calidad y Pruebas Soft'),
+('G01 Integración Aplicaciones'), ('G02 Integración Aplicaciones'), ('G03 Integración Aplicaciones'), ('G04 Integración Aplicaciones'),
+('G01 Direc Personas'), ('G02 Direc Personas'), ('G03 Direc Personas'), ('G04 Direc Personas'),
+('G01 Prog Web I'), ('G02 Prog Web I'), ('G03 Prog Web I'), ('G04 Prog Web I'),
+('G01 Ética Profesional'), ('G02 Ética Profesional'), ('G03 Ética Profesional'), ('G04 Ética Profesional');
+
+-- Para el id_classroom: 01faefd5-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '01faefd5-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 07de7e31-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '07de7e31-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3 ;
+
+-- Para el id_classroom: 0bffd540-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '0bffd540-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 0fe90147-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '0fe90147-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 15d8cf76-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '15d8cf76-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 1a497a1b-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '1a497a1b-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 1dcbc595-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '1dcbc595-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 219f08d8-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '219f08d8-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 249c4e1e-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '249c4e1e-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 2895bc3e-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '2895bc3e-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 2c5fa398-67b2-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '2c5fa398-67b2-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 2c6a5420-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '2c6a5420-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 3073975f-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '3073975f-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 30974fb2-67b2-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '30974fb2-67b2-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 33801e22-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '33801e22-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 3502ee35-67b2-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '3502ee35-67b2-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 37428f09-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '37428f09-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 3b69f861-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '3b69f861-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 40d76b2e-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '40d76b2e-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 459144aa-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '459144aa-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 48d62d28-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '48d62d28-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 4c683763-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '4c683763-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 502e3352-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '502e3352-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 54d54029-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '54d54029-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 5800b821-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '5800b821-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 5a43a8dd-67b2-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '5a43a8dd-67b2-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 5d1a9187-67b9-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '5d1a9187-67b9-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: 6ea3eaea-67b2-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT '6ea3eaea-67b2-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: d1730cb1-67b8-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT 'd1730cb1-67b8-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: d5314494-67b8-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT 'd5314494-67b8-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: d8180768-67b8-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT 'd8180768-67b8-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: dbe74fd5-67b8-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT 'dbe74fd5-67b8-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: e05a53b8-67b8-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT 'e05a53b8-67b8-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: eb857224-67b8-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT 'eb857224-67b8-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: efd9b81b-67b8-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT 'efd9b81b-67b8-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: f8fc44a1-67b8-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT 'f8fc44a1-67b8-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+-- Para el id_classroom: fd1401a0-67b8-11ee-ad27-0242ac110002
+INSERT IGNORE INTO class_students (id_classroom, id_student, registration_date)
+SELECT 'fd1401a0-67b8-11ee-ad27-0242ac110002', id_user, NOW() FROM users where user_type = 3;
+
+
+INSERT IGNORE INTO class_groups_students (id_classroom, id_student, id_group)
+SELECT '01faefd5-67b9-11ee-ad27-0242ac110002', id_user, CEIL(RAND() * (4 - 1 + 1) + 1)
+FROM users
+WHERE user_type = 3;
 
 
 
