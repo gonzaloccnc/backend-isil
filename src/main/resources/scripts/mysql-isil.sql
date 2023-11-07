@@ -141,6 +141,40 @@ CREATE TABLE class_groups_students (
     FOREIGN KEY (id_group)  REFERENCES groups_class(id_group)
 );
 
+CREATE TABLE evaluations (
+    id_evaluation INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    type VARCHAR(7), # PARCIAL | FINAL | EP1~4
+    start_date DATETIME,
+    end_date DATETIME,
+    link_file TEXT,
+    is_visible BOOLEAN,
+    its_group BOOLEAN,
+    id_classroom VARCHAR(36) NOT NULL,
+    FOREIGN KEY (id_classroom) REFERENCES classrooms(id_classroom)
+);
+
+CREATE TABLE evaluations_send (
+    id_send INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    send_date DATETIME NOT NULL,
+    send_update_date DATETIME NULL,
+    link_file TEXT NOT NULL,
+    user_send VARCHAR(36) NOT NULL,
+    user_update VARCHAR(36) NULL,
+    id_group INT NULL,
+    id_evaluation INT NOT NULL,
+    FOREIGN KEY (user_send) REFERENCES users(id_user),
+    FOREIGN KEY (user_update) REFERENCES users(id_user),
+    FOREIGN KEY (id_group) REFERENCES groups_class(id_group),
+    FOREIGN KEY (id_evaluation) REFERENCES evaluations(id_evaluation)
+);
+
+CREATE TABLE evaluations_score (
+    id_score INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    score INT,
+    id_send INT NOT NULL,
+    FOREIGN KEY (id_send) REFERENCES evaluations_send(id_send)
+);
+
 /* CONTRAINTS */
 
 -- DNI, CARNET EXTRANJERIA
@@ -834,3 +868,22 @@ FROM class_groups_students cs
 
 
 UPDATE contents SET link_file = 'https://res.cloudinary.com/durrquwiy/image/upload/v1696636531/syllabus/30015-SILABO_tsaov5.pdf';
+
+/* individual */
+SELECT e.id_score, e.score, e.id_send, es.send_date, es.send_update_date, es.link_file,
+       es.user_send, es.user_update, es.id_evaluation, CONCAT(u.firstname, ' ', u.surnames) fullname,
+       u.email, u.photo
+FROM evaluations_score e
+         INNER JOIN evaluations_send es ON es.id_send = e.id_send
+         INNER JOIN users u ON u.id_user = es.user_send
+WHERE es.id_group IS NULL;
+
+/* grupal */
+
+SELECT e.id_score, e.score, e.id_send, es.send_date, es.send_update_date, es.link_file,
+       es.user_send, es.user_update, es.id_evaluation, CONCAT(u.firstname, ' ', u.surnames) fullname,
+       u.email, u.photo
+FROM evaluations_score e
+         INNER JOIN evaluations_send es ON es.id_send = e.id_send
+         INNER JOIN class_groups_students cgs ON cgs.id_group = es.id_group
+         INNER JOIN users u ON u.id_user = cgs.id_student;
