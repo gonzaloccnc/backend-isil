@@ -10,23 +10,35 @@ CREATE TABLE careers (
 );
 
 CREATE TABLE users (
-	id_user varchar(36) NOT NULL PRIMARY KEY,
-	firstname varchar(100) NOT NULL,
-	surnames varchar(100) NOT NULL,
-	birthday date,
-	address varchar(200),
-	doc_id varchar(20) NOT NULL UNIQUE,
-	type_doc smallint NOT NULL,
-	password varchar(150) NOT NULL,
-	email varchar(100) NOT NULL UNIQUE,
-	phone varchar(9) UNIQUE,
-	register_date date,
-	state smallint NOT NULL,
-	user_type smallint NOT NULL,
-	photo text,
-	id_career varchar(36),
-    FOREIGN KEY (id_career) REFERENCES careers(id_career)
+    id_user varchar(36) NOT NULL PRIMARY KEY,
+    firstname varchar(100) NOT NULL,
+    surnames varchar(100) NOT NULL,
+    birthday date,
+    address varchar(200),
+    doc_id varchar(20) NOT NULL UNIQUE,
+    type_doc smallint NOT NULL,
+    password varchar(150) NOT NULL,
+    email varchar(100) NOT NULL UNIQUE,
+    phone varchar(9) UNIQUE,
+    register_date date,
+    state smallint NOT NULL,
+    user_type smallint NOT NULL,
+    photo text,
+    id_career varchar(36),
+    FOREIGN KEY (id_career) REFERENCES careers(id_career),
+
+    -- Campos específicos para profesores
+    specialty varchar(100) NULL DEFAULT NULL,
+    hire_date date NULL DEFAULT NULL,
+
+    -- Campos específicos para tiempo completo o tiempo parcial
+    is_full_time boolean NULL DEFAULT NULL,
+    max_hours_per_week int NULL DEFAULT NULL,
+
+    -- CHECK (user_type = 2 AND (is_full_time = TRUE OR is_full_time = FALSE)),
+    -- CHECK (user_type = 2 AND (is_full_time = TRUE AND max_hours_per_week = 60 OR is_full_time = FALSE AND max_hours_per_week = 30))
 );
+
 
 CREATE TABLE courses (
 	id_course varchar(36) NOT NULL PRIMARY KEY,
