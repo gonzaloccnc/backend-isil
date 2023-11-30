@@ -33,7 +33,7 @@ CREATE TABLE users (
 
     -- Campos específicos para tiempo completo o tiempo parcial
     is_full_time boolean NULL DEFAULT NULL,
-    max_hours_per_week int NULL DEFAULT NULL,
+    max_hours_per_week int NULL DEFAULT NULL
 
     -- CHECK (user_type = 2 AND (is_full_time = TRUE OR is_full_time = FALSE)),
     -- CHECK (user_type = 2 AND (is_full_time = TRUE AND max_hours_per_week = 60 OR is_full_time = FALSE AND max_hours_per_week = 30))
@@ -899,3 +899,27 @@ FROM evaluations_score e
          INNER JOIN evaluations_send es ON es.id_send = e.id_send
          INNER JOIN class_groups_students cgs ON cgs.id_group = es.id_group
          INNER JOIN users u ON u.id_user = cgs.id_student;
+
+CREATE VIEW dashboard_evaluations AS
+    SELECT e.id_evaluation, e.type, e.start_date, e.end_date, e.link_file,
+           e.is_visible, e.its_group, e.id_classroom
+    FROM evaluations e WHERE id_classroom IN (
+        SELECT c.id_classroom FROM class_students c
+    ) AND e.end_date > CONVERT_TZ(NOW(), 'UTC', 'America/Bogota') AND e.is_visible = 1
+;
+
+CREATE VIEW dashboard_today_classes AS
+SELECT id_classroom, nrc, school_day, start_time, end_time, link_meet,
+       total_hours, modality, campus, period, start_date, end_date,
+       max_members, id_teacher, id_course, creation_date, updated_date,
+       user_creation, user_updating
+FROM classrooms c2
+WHERE CASE
+          WHEN c2.school_day = 'Lunes' THEN 'Monday'
+          WHEN c2.school_day = 'Martes' THEN 'Tuesday'
+          WHEN c2.school_day = 'Miércoles' THEN 'Wednesday'
+          WHEN c2.school_day = 'Jueves' THEN 'Thursday'
+          WHEN c2.school_day = 'Viernes' THEN 'Friday'
+          WHEN c2.school_day = 'Sábado' THEN 'Saturday'
+          END = DAYNAME(now())
+;
