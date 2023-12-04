@@ -902,18 +902,19 @@ FROM evaluations_score e
 
 CREATE VIEW dashboard_evaluations AS
     SELECT e.id_evaluation, e.type, e.start_date, e.end_date, e.link_file,
-           e.is_visible, e.its_group, e.id_classroom
-    FROM evaluations e WHERE id_classroom IN (
-        SELECT c.id_classroom FROM class_students c
-    ) AND e.end_date > CONVERT_TZ(NOW(), 'UTC', 'America/Bogota') AND e.is_visible = 1
+           e.is_visible, e.its_group, e.id_classroom, cs.id_student
+    FROM evaluations e
+    INNER JOIN class_students cs ON cs.id_classroom = e.id_classroom
+    WHERE e.end_date > CONVERT_TZ(NOW(), 'UTC', 'America/Bogota') AND e.is_visible = 1
 ;
 
 CREATE VIEW dashboard_today_classes AS
-SELECT id_classroom, nrc, school_day, start_time, end_time, link_meet,
+SELECT c2.id_classroom, nrc, school_day, start_time, end_time, link_meet,
        total_hours, modality, campus, period, start_date, end_date,
        max_members, id_teacher, id_course, creation_date, updated_date,
-       user_creation, user_updating
+       user_creation, user_updating, cs.id_student
 FROM classrooms c2
+INNER JOIN class_students cs ON cs.id_classroom = c2.id_classroom
 WHERE CASE
           WHEN c2.school_day = 'Lunes' THEN 'Monday'
           WHEN c2.school_day = 'Martes' THEN 'Tuesday'
@@ -921,5 +922,7 @@ WHERE CASE
           WHEN c2.school_day = 'Jueves' THEN 'Thursday'
           WHEN c2.school_day = 'Viernes' THEN 'Friday'
           WHEN c2.school_day = 'Sábado' THEN 'Saturday'
-          END = DAYNAME(now())
+          END = DAYNAME(CONVERT_TZ(NOW(), 'UTC', 'America/Bogota'))
 ;
+
+SELECT * FROM dashboard_evaluations where id_student = '1c995ab5-3e36-4bd5-bf9c-13a866d849d8'
